@@ -6,11 +6,12 @@ import Login from "./dashboard/pages/login/Login";
 import Home from "./dashboard/pages/home/Home";
 import Dashboard from "./dashboard/Dashboard";
 import Assesment from "./dashboard/pages/assesment/Assesment";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AuditPlane from "./dashboard/pages/adult_plane/AuditPlane";
 import Project from "./dashboard/pages/project/Project";
 import Forgot from "./dashboard/pages/forgot/Forgot";
+import Landing from "./dashboard/pages/landing-page/Landing";
 function App() {
   return (
     <>
@@ -18,14 +19,16 @@ function App() {
         <ToastContainer />
         <Routes>
           <Route path="/">
-            <Route index element={<Login />} />
-            <Route path='login' element={<Login />} />
+            <Route index element={<Landing />} />
+            <Route path="login" element={<Login />} />
             <Route path="forgot-password" element={<Forgot />} />
+            {/*===============Begin:: dashboard ========== */}
             <Route path="dashboard" element={<Dashboard />}>
               <Route index element={<Home />} />
               <Route path="assesment" element={<Assesment />} />
               <Route path="audit-plane" element={<AuditPlane />} />
               <Route path="project" element={<Project />} />
+              {/*===============End:: dashboard ========== */}
             </Route>
           </Route>
         </Routes>

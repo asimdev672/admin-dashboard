@@ -12,7 +12,7 @@ const Home = () => {
         <Sidebar setWUiStyle={setWUiStyle} wUiStyle={wUiStyle} />
         {/* ========begin:: masterContainer=========  */}
         <div className="masterContainer">
-          <div className="masterContainer ">
+          <div className=" ">
             <Navbar />
           </div>
           <div className={wUiStyle ? "masterContainer px-3" : "masterContainer px-3 w2"}>

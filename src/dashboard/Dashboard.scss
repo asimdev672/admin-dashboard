@@ -1,0 +1,21 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+.dashboard_main{
+  display: flex;
+  overflow: hidden;
+}
+.w2 {
+  min-width: 100% !important;
+}
+.masterContainer {
+  min-width: 95%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  @include mobile{
+    min-width: 80% !important;
+  }
+}

@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+  background: #f5f5f5 !important;
+  color: #000;
+  text-decoration: none !important;
+}
+.opacity--cursor{
+  opacity: 0.5;
+  user-select: none;
+  cursor: not-allowed;
+}
+.transparent {
+  background-color: transparent;
+}
+.pointer {
+  cursor: pointer;
+}
+.red{
+  color: red !important;
+}
+.w-85{
+  width: 85% !important;
+}
+label {
+  font-size: 13px;
+  user-select: none;
+}
+option {
+  font-size: 13px !important;
+}
+select {
+  font-size: 12px !important;
+  line-height: 2.2 !important;
+}
+::-webkit-scrollbar{
+  height: 0.4rem;
+  width: 0.4rem;
+  background: #c0c0c054;
+}
+
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 1rem !important;
+  background-color:#287cac;
+}
+.blueBtn{
+  background: #dbeff9;
+  border-color: #80bce0;
+  color: #01527a;
+  outline: none;
+  cursor: pointer;
+  padding: 3px 11px;
+  border: 0.4px solid;
+  margin-top: 2px;
+  margin-left: 4px;
+  margin-right: 12px;
+  font-weight: 600;
+  border-radius: 3px;
+  transition: all 0.3s linear;
+  margin-bottom: 4px;
+}
+// =================Begin::Drawer css===========================
+.SettingDrawer_main {
+  position: absolute;
+  box-shadow: 0 0.2rem 0.4rem 0 rgb(0 0 0 / 25%);
+  max-height: 10rem;
+  background-color: #fff;
+  z-index: 17;
+  width: 9.5rem;
+  top: 24px;
+  left: -148px;
+  max-height: 10.5rem;
+  color: #000;
+  font-size: 11px;
+  font-weight: 400;
+  transition: all 0.3s linear;
+
+  p {
+    border: 1px solid #a9a9a9;
+    border-top: 0;
+    padding: 0.5rem;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.2s linear;
+  }
+}
+.ExpandDrawer_main {
+  position: absolute;
+  box-shadow: 0 0.2rem 0.4rem 0 rgb(0 0 0 / 25%);
+  background-color: #fff;
+  z-index: 17;
+  min-width: 15rem;
+  top: 24px;
+  right: -92px;
+  padding: 1rem;
+  max-height: 6rem;
+  color: #000;
+  font-size: 11px;
+  font-weight: 400;
+  overflow: hidden;
+  transition: all 0.3s linear;
+
+  .btnBox {
+    background: #f5f5f5 !important;
+    padding: 0.4rem;
+    margin-top: 3px;
+    transition: all 0.3s linear;
+    button {
+      background: #dbeff9;
+      border-color: #80bce0;
+      color: #01527a;
+      outline: none;
+      cursor: pointer;
+      padding: 3px 11px;
+      border: 1px solid;
+      margin-top: 2px;
+      font-weight: 600;
+      border-radius: 3px;
+      transition: all 0.3s linear;
+    }
+  }
+}
+.filterDrawer_main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #eaf8ff;
+  width: 100vw;
+  display: block;
+  z-index: 120;
+
+  .fhm {
+    background-color: #01527a !important;
+    padding-right: 2rem;
+
+    button {
+      color: white;
+      outline: none;
+      cursor: pointer;
+      padding: 5px 11px;
+      border: 1px solid transparent;
+      margin-top: 2px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.3s linear;
+    }
+  }
+  .flter_body{
+    label{
+    font-size: 13px;
+    color: #000 !important;
+    }
+  }
+  .filter_footer {
+    button {
+      background: #fff;
+      border: 1px solid silver;
+      outline: none;
+      cursor: pointer;
+      padding: 7px;
+      padding-bottom: 9px;
+      position: relative;
+      bottom: -25px;
+
+      span {
+        background: #287cac;
+        color: white;
+        padding: 5px 11px;
+        border: 1px solid transparent;
+        margin-top: 2px;
+        font-weight: 600;
+        font-size: 13px;
+        transition: all 0.3s linear;
+      }
+    }
+  }
+}
+// =================Begin::Drawer css===========================
+// =================Begin::AddWidgetForm_main css================
+// =================End::AddWidgetForm_main css================
+.AddWidgetForm_main {
+  .addBtn {
+    background-color: #236a94;
+    color: #fff;
+    border: 0;
+    height: 2.2rem;
+    width: 5.2rem;
+    padding: 0 0.5rem;
+  }
+  #urlHelp {
+    font-size: 13px;
+    user-select: none;
+  }
+  .search-wrapper {
+    background: white !important;
+  }
+}

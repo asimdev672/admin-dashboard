@@ -1,0 +1,79 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+.Navbar_main {
+  height: 6vh;
+  background-color: #01527a;
+  .nav_brand{
+    color: white;
+    font-size: larger;
+    @include mobile{
+      font-size: small;
+    }
+  }
+  .right {
+    gap: 1rem;
+    @include mobile{
+      gap: 0.5rem;
+    }
+    .nav_icon {
+      .notification{
+        position: absolute;
+        right: 6px;
+        top: 4px;
+        background-color: red;
+        color: white;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        font-size: 12px;
+        text-align: center;
+      }
+      &:nth-child(1) {
+        border-radius: 50%;
+        color: #58aeb1;
+        font-size: x-large;
+      }
+      &:nth-child(2) {
+        font-size: x-large;
+        border-radius: 50%;
+        color: #fde243 !important;
+      }
+      &:nth-child(3) {
+        font-size: x-large;
+        border-radius: 50%;
+        color: white !important;
+      }
+      &:nth-child(5) {
+        font-size: x-large;
+        border-radius: 50%;
+        color: #287cac !important;
+      }
+    }
+    #dropdown-basic {
+      background: none !important;
+      color: white;
+      font-size: 1rem;
+    }
+    .dropdown {
+      @include mobile{
+        display: none;
+      }
+      button {
+        outline: none;
+        border: none;
+      }
+      .dropdown-item{
+        &:hover{
+          background: #dbeff9 !important;
+        }
+      }
+      a{
+        font-size: 13px !important;
+      }
+    }
+  }
+}

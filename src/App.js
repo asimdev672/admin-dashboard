@@ -12,6 +12,8 @@ import AuditPlane from "./dashboard/pages/adult_plane/AuditPlane";
 import Project from "./dashboard/pages/project/Project";
 import Forgot from "./dashboard/pages/forgot/Forgot";
 import Landing from "./dashboard/pages/landing-page/Landing";
+import SignUp from "./dashboard/pages/signUp/SignUp";
+import CompanyForm from "./dashboard/pages/company-form/CompanyForm";
 function App() {
   return (
     <>
@@ -21,6 +23,8 @@ function App() {
           <Route path="/">
             <Route index element={<Landing />} />
             <Route path="login" element={<Login />} />
+            <Route path="sign-up" element={<SignUp />} />
+            <Route path="company-form" element={<CompanyForm />} />
             <Route path="forgot-password" element={<Forgot />} />
             {/*===============Begin:: dashboard ========== */}
             <Route path="dashboard" element={<Dashboard />}>

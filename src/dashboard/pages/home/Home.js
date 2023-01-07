@@ -23,16 +23,15 @@ export default function Home() {
         >
           {/* 1st tab  */}
           <Tab eventKey="Dashboard" title="My Dashboard">
-            <div className="row mb-3">
-              <div className="col-12 col-md-8">
+            <div className="row">
+              <div className="col-12 col-md-8  mb-3">
+                <AssignmentDirect />
+              </div>
+              <div className="col-12  mb-3">
                 <AssignmentDirect />
               </div>
             </div>
-            <div className="row mb-3">
-              <div className="col-12">
-                <AssignmentDirect />
-              </div>
-            </div>
+          
           </Tab>
           {/* 2nd tab  */}
           <Tab eventKey="Widgets" title="Custom Widgets">

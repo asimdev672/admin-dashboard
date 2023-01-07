@@ -1,11 +1,114 @@
-.Landing_main{
-    height: 100vh;
-    width: 100vw;
-    max-height: 100vh;
-    overflow: hidden;
+.background-image--b{
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: block;
+  background-image: url('/Assests/form-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
+  -o-filter: blur(7px);
+  -ms-filter: blur(7px);
+  filter: blur(7px);
+}
+.Landing_main {
+  position: relative;
+  z-index: 999;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  .navbar {
+    background-color: #186b9c;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .navbar-brand {
+      color: white;
+      font-weight: 600;
+    }
+    a {
+      color: white !important;
+      transition: all 0.3s linear;
+      font-weight: 400;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  .landing--body {
+    .content {
+      p {
+        letter-spacing: 2px;
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 3px;
+    }
+    .about{
+      padding-top: 5rem;
+    }
+    .software{
+      
+    }
+  }
+  .About__heading {
+    font-family: "Zilla Slab", serif;
+    font-size: xxx-large;
+  }
+  .About__para {
     color: white;
-    background-image: url('https://images.unsplash.com/photo-1602257529448-b4b806e1aa41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1793&q=80');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color:#01527a ;
+    padding-bottom: 22px;
+    border-bottom: 2px solid gray;
+    font-family: "PT Serif", serif;
+    font-size: small;
+    letter-spacing: 1px;
+  }
+  .About__logo-heading {
+    color: #01344e;
+    font-weight: 600;
+    font-size: larger;
+  }
+  .about_h{
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    span{
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+  .About__logo-div {
+    margin-top: 12px;
+    padding-top: 4px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid gray;
+  }
+  
+  .About__img_text {
+    padding: 1px 8px;
+  }
+  .About__p__info {
+    letter-spacing: 1px;
+    font-size: small;
+  }
+  .About__resume__div {
+    margin: 25px 0px;
+  }
+ 
+  .small--text{
+    font-size: 10px;
+  }
 }

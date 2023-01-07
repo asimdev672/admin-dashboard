@@ -70,6 +70,21 @@ select {
   transition: all 0.3s linear;
   margin-bottom: 4px;
 }
+.background-image{
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: block;
+  background-image: url('/Assests/form-bg.jpg');
+  width: 100vw;
+  height: 100vh;
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
+  -o-filter: blur(7px);
+  -ms-filter: blur(7px);
+  filter: blur(7px);
+}
 // =================Begin::Drawer css===========================
 .SettingDrawer_main {
   position: absolute;

@@ -1,25 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import logBg from '../../../../public/img/login.jpg'
-// style={{ backgroundImage: `url(${logBg})` }}
+
 import "./Login.scss";
 const Login = () => {
   return (
     <>
-      <div className="login_main" >
+    <div class="background-image"></div>
+      <div className="login_main">
+        <h1>ISO27K1 Toolkit </h1>
         <div className="login_card">
-          <h1>TeamMate+</h1>
-          <p>please login with your TeamMate condition below:</p>
+          <p>Sign in to you account:</p>
           <div className="d-flex flex-column">
-            <input type="text" placeholder="username" />
+            <input type="text" placeholder="Email or Username" />
             <input type="password" placeholder="password" />
-            <Link to='/dashboard'>
-            <button>Login</button>
+            <Link to="/forgot-password" className="text-start decroation mb-3">
+              <span>forgot password?</span>
             </Link>
-            <Link to='/forgot-password' className="text-end decroation">
-            <span className="white ss">forgot password?</span>
+            <Link to="/dashboard">
+              <button>Sign In</button>
             </Link>
           </div>
+        </div>
+        <div className="d-flex hustify-content-center gap-4 mt-3 ftt">
+          <p>Don't have an account yet?</p>
+          <Link to="/sign-up" className="text-start decroation mb-3">
+              <span>Sign Up?</span>
+            </Link>
         </div>
       </div>
     </>

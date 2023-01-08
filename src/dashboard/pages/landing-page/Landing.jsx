@@ -30,17 +30,17 @@ export default function Landing() {
               >
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="#home">
                       Home
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#Abt">
+                    <a className="nav-link" href="#software">
                       Our Software
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="#about">
                       About Us
                     </a>
                   </li>
@@ -59,7 +59,7 @@ export default function Landing() {
             </div>
           </nav>
           <div className="landing--body">
-            <div className="container">
+            <div id='home' className="container">
               <div className="row row-cols-md-2 row-cols-1 mt-5">
                 <div className="col ">
                   <div className=" pt-md-5  pt-2 ps-3 content">
@@ -91,7 +91,7 @@ export default function Landing() {
           </div>
         </section>
         {/* section 2  */}
-        <section className="section--B mt-md-5 mt-2 pt-md-5">
+        <section id="software" className="section--B mt-md-5 mt-2 pt-md-5">
           <div className="container">
             <div className="row row-cols-md-2 row-cols-1">
               <div className="col">
@@ -147,8 +147,8 @@ export default function Landing() {
             <button className="landing-btn mt-3">Go TO Dashboard</button>
           </div>
         </section>
-        {/* section 2  */}
-        <section className="section--B mt-md-5 mt-2 pt-md-5">
+        {/* section 4  */}
+        <section id="about" className="section--B mt-md-5 mt-2 pt-md-5">
           <div className="container">
             <div className="row row-cols-md-2 row-cols-1">
               <div className="col">

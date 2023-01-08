@@ -5,6 +5,7 @@ import { AiFillHome, AiFillProject } from "react-icons/ai";
 import { MdDashboard, MdDelete } from "react-icons/md";
 import { GiSandsOfTime } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { FcAlarmClock } from "react-icons/fc";
 const Sidebar = ({ setWUiStyle, wUiStyle }) => {
   const handleWidth = () => {
     setWUiStyle(!wUiStyle);
@@ -51,9 +52,15 @@ const Sidebar = ({ setWUiStyle, wUiStyle }) => {
             </span>
             <li className={wUiStyle ? "d-none" : "d-block"}>Adult Plane</li>
           </Link>
+          <Link to="time-tracking">
+            <span className="d-flex align-items-center">
+              <FcAlarmClock className="side_clock--ico"/>
+            </span>
+            <li className={wUiStyle ? "d-none" : "d-block"}>Time Tracking</li>
+          </Link>
           <Link to="project">
             <span className="d-flex align-items-center">
-              <AiFillProject className="side_project" />
+              <AiFillProject className="side_project--ico" />
             </span>
             <li className={wUiStyle ? "d-none" : "d-block"}>Project</li>
           </Link>

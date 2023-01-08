@@ -4,7 +4,7 @@ import "./CompanyForm.scss";
 export default function CompanyForm() {
   return (
     <>
-    <div class="background-image"></div>
+    {/* <div class="background-image"></div> */}
       <div className="CompanyForm_main">
         <div>
         <div className="container">

@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="Navbar_main container-fluid ">
         <div className="d-flex justify-content-between align-items-center h-100">
          <Link to='/dashboard' style={{textDecoration:'none'}}>
-         <div className="nav_brand">TeamMate+</div>
+         <div className="nav_brand">ISO27K1 Toolkit</div>
          </Link>
           <div className="right d-flex ">
             <div className="nav_icon">

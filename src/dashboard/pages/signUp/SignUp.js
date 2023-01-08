@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function SignUp() {
   return (
     <>
-    <div class="background-image"></div>
+    {/* <div class="background-image"></div> */}
       <div className="SignUp_main">
         <div className="container">
           <div className="row row-cols-md-2 row-cols-1">

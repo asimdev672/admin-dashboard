@@ -14,6 +14,7 @@ import Forgot from "./dashboard/pages/forgot/Forgot";
 import Landing from "./dashboard/pages/landing-page/Landing";
 import SignUp from "./dashboard/pages/signUp/SignUp";
 import CompanyForm from "./dashboard/pages/company-form/CompanyForm";
+import TimeTracking from "./dashboard/pages/time-tracking/TimeTracking";
 function App() {
   return (
     <>
@@ -31,10 +32,12 @@ function App() {
               <Route index element={<Home />} />
               <Route path="assesment" element={<Assesment />} />
               <Route path="audit-plane" element={<AuditPlane />} />
+              <Route path="time-tracking" element={<TimeTracking />} />
               <Route path="project" element={<Project />} />
               {/*===============End:: dashboard ========== */}
             </Route>
           </Route>
+          
         </Routes>
       </BrowserRouter>
     </>

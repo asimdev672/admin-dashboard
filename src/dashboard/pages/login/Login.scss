@@ -6,6 +6,7 @@
 .login_main {
   z-index: 9999;
   position: relative;
+  background-color: #01527a;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,8 +82,8 @@ color: green;
    }
 
    .ftt{
-    // color: rgba(255, 255, 255, 0.524);
-    color: #186b9c;
+    color: rgba(255, 255, 255, 0.524);
+    // color: #186b9c;
 
     span{
       color: white;

@@ -1,0 +1,37 @@
+.TimeTracking_main {
+  .time--head {
+    font-weight: 500;
+    font-size: larger;
+  }
+  .labl {
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .circle {
+    background-color: red;
+    color: white;
+    padding: 0.3rem;
+    border-radius: 50%;
+  }
+  .time--add-section {
+    & > div{
+        flex-wrap: wrap;
+    }
+    padding-top: 1rem;
+    label {
+      font-weight: 500;
+    }
+    select {
+      width: 14rem;
+      padding: 0.5rem 0;
+    }
+    input[type='search']{
+        width: 18rem;
+        outline: none;
+        padding: 0.3rem 0;
+    }
+    button{
+        margin-left: 0.5rem;
+    }
+  }
+}

@@ -5,7 +5,7 @@ import "./Login.scss";
 const Login = () => {
   return (
     <>
-    <div class="background-image"></div>
+    {/* <div class="background-image"></div> */}
       <div className="login_main">
         <h1>ISO27K1 Toolkit </h1>
         <div className="login_card">

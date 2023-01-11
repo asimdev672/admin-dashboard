@@ -11,7 +11,10 @@ const Sidebar = ({ setWUiStyle, wUiStyle }) => {
     setWUiStyle(!wUiStyle);
   };
   return (
-    <div className="Sidebar__main">
+    <div className="Sidebar__main"
+     onMouseEnter={()=>setWUiStyle(false)}
+     onMouseLeave={()=>setWUiStyle(true)}
+     >
       {/* =========top section=========  */}
       <div
         className="top d-flex justify-content-center align-items-center"

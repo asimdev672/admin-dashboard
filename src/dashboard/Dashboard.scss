@@ -10,12 +10,15 @@
 }
 .w2 {
   min-width: 100% !important;
+  transition: all 0.4s ease-in-out;
 }
 .masterContainer {
   min-width: 95%;
   max-height: 100vh;
   overflow-y: scroll;
+  transition: all 0.4s ease-in-out;
   @include mobile{
     min-width: 80% !important;
+    transition: all 0.4s ease-in-out;
   }
 }

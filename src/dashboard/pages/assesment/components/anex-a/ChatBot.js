@@ -4,16 +4,20 @@ import db from "./db.json";
 export default function Chat() {
   const [inpVal, setInpVal] = useState('');
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
   const handleSearch = () => {
+    setLoading(true)
     const value = db.find(el => el?.sr_no == inpVal);
     console.log('first',value)
     console.log('inpVal',inpVal)
     if (value) {
       setData(value);
       setInpVal('')
+      setLoading(false)
     } else {
       setData({ text: "No data found" });
       setInpVal('')
+      setLoading(false)
     }
     console.log(inpVal);
   };
@@ -45,8 +49,7 @@ export default function Chat() {
             />
           </div>
         </div>
-
-        <div
+       {loading?<p className="text-center text-white mt-3">loading...</p>:<div
           className="chat_body overflow-auto"
           style={{ height: "23rem", padding: "1rem" }}
         >
@@ -66,7 +69,8 @@ export default function Chat() {
           ) : (
             <p style={{ color: "white" }}>{data?.text}</p>
           )}
-        </div>
+        </div>}
+        
       </div>
     </>
   );

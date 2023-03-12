@@ -98,7 +98,7 @@ export default function AssignmentDirect() {
               </thead>
               <tbody>
                 <tr>
-                  <td>Asim</td>
+                  <td>Shahana</td>
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>@mdo</td>

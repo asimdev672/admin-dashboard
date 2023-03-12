@@ -195,7 +195,7 @@ export default function AddForm({setOffCanShow}) {
                             <td>Mark</td>
                             <td>13/12</td>
                             <td>24-0-10</td>
-                            <td>Asim</td>
+                            <td>Shahana</td>
                             <td>Mark</td>
                             <td>Otto</td>
                           </tr>

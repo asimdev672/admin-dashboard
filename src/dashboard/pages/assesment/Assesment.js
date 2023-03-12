@@ -5,7 +5,7 @@ import { MdTableView } from "react-icons/md";
 import { FcPlus } from "react-icons/fc";
 import { RiDeleteBin6Line, RiFileExcel2Fill } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { GiLevelEndFlag } from "react-icons/gi";
+import { GiLevelEndFlag,GiSolarPower } from "react-icons/gi";
 import { BsLayerForward } from "react-icons/bs";
 
 import {
@@ -16,8 +16,10 @@ import { BiSearch } from "react-icons/bi";
 import { TbTriangleInverted } from "react-icons/tb";
 import { Offcanvas } from "react-bootstrap";
 import AddForm from "./components/AddForm";
+import MainAnex from "./components/anex-a/Index";
 export default function AuditPlane() {
   const [offCanShow, setOffCanShow] = useState(false);
+  const [anexA, setAnexA] = useState(false);
   // handleAddAdultForm
   const handleClose = () => setOffCanShow(false);
   const handleShow = () => setOffCanShow(true);
@@ -79,10 +81,25 @@ export default function AuditPlane() {
               </div>
               <p className="mt-md-3 mt-0">Export</p>
             </div>
+            {/* Anex A  */}
+            <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
+              <div className="ico--main ">
+                <GiSolarPower
+                  className="icc"
+                  style={{ color: "#00c057" }}
+                  onClick={()=>setAnexA(!anexA)}
+                />
+                <span>Anex</span>
+              </div>
+              <p className="mt-md-3 mt-0">Anex A</p>
+            </div>
           </div>
         </header>
         {/* AuditPlane_body  */}
         <div className="AuditPlane_body">
+          {anexA? <div className="mt-5">
+          <MainAnex/>
+          </div>: <div>
           {/* search bar */}
           <div className="search">
             <div>
@@ -131,7 +148,7 @@ export default function AuditPlane() {
                 <tbody>
                   {[1, 2, 3, 4, 5].map((e) => (
                     <tr>
-                      <td>Asim</td>
+                      <td>Shahana</td>
                       <td>Mark</td>
                       <td>@mdo</td>
                       <td>0</td>
@@ -158,6 +175,9 @@ export default function AuditPlane() {
               </div>
             </div>
           </div>
+          </div>}
+         
+         
         </div>
       </div>
       {/* ==========  Add AduitPlan ========== */}

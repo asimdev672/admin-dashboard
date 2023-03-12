@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TbTriangleInverted } from "react-icons/tb";
 import { toast } from "react-toastify";
-import "../AdultPlane.scss";
+import "../AuditPlane.scss";
 export default function AddForm({ setOffCanShow }) {
   const DateArr = [
     "Estimated Resource Costs",

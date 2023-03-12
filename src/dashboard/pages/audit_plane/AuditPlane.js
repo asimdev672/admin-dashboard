@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AdultPlane.scss";
+import "./AuditPlane.scss";
 import { CgChevronDoubleRightO } from "react-icons/cg";
 import { MdTableView } from "react-icons/md";
 import { FcApproval, FcPlus } from "react-icons/fc";
@@ -182,7 +182,7 @@ export default function AuditPlane() {
                 <tbody>
                   {[1, 2, 3, 4, 5, 6, 7].map((e) => (
                     <tr>
-                      <td>Asim</td>
+                      <td>Shahana</td>
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>

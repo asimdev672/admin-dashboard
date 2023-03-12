@@ -150,7 +150,7 @@ export default function Project() {
                 <tbody>
                   {[1, 2, 3, 4, 5, 6, 7].map((e) => (
                     <tr>
-                      <td>Asim</td>
+                      <td>Shahana</td>
                       <td>closed</td>
                       <td></td>
                       <td></td>

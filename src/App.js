@@ -8,7 +8,7 @@ import Dashboard from "./dashboard/Dashboard";
 import Assesment from "./dashboard/pages/assesment/Assesment";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AuditPlane from "./dashboard/pages/adult_plane/AuditPlane";
+import AuditPlane from "./dashboard/pages/audit_plane/AuditPlane";
 import Project from "./dashboard/pages/project/Project";
 import Forgot from "./dashboard/pages/forgot/Forgot";
 import Landing from "./dashboard/pages/landing-page/Landing";

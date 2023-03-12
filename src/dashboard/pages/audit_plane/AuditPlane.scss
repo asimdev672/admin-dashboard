@@ -68,6 +68,7 @@
   background: white;
   height: 66vh;
   padding-left: 1rem;
+  overflow-y: scroll;
   .search {
     & > div {
       display: flex;

@@ -89,15 +89,15 @@ export default function AuditPlane() {
                   style={{ color: "#00c057" }}
                   onClick={()=>setAnexA(!anexA)}
                 />
-                <span>Anex</span>
+                <span>Annex</span>
               </div>
-              <p className="mt-md-3 mt-0">Anex A</p>
+              <p className="mt-md-3 mt-0">Annex A</p>
             </div>
           </div>
         </header>
         {/* AuditPlane_body  */}
         <div className="AuditPlane_body">
-          {anexA? <div className="mt-5">
+          {anexA? <div className="">
           <MainAnex/>
           </div>: <div>
           {/* search bar */}

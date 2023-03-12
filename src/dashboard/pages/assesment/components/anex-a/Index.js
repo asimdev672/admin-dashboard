@@ -9,6 +9,8 @@ export default function MainAnex() {
   const [show, setShow] = useState(false);
   return (
     <>
+    <h3 className="text-center my-3" style={{fontWeight: '700',
+    color: '#024264'}}>Annex A</h3>
       <CompA5 /> <br />
       <CompA6 /> <br />
       <CompA7 /> <br />

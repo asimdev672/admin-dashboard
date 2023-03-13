@@ -14,7 +14,7 @@ const Home = () => {
         {/* ========begin::sidebar=========  */}
         <Sidebar setWUiStyle={setWUiStyle} wUiStyle={wUiStyle}  />
         {/* ========begin:: masterContainer=========  */}
-        <div className="masterContainer">
+        <div className="masterContainer mainMasterContainer">
           <div className=" ">
             <Navbar />
           </div>

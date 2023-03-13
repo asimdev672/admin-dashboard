@@ -1148,6 +1148,7 @@ export default function CompA5() {
       })
       .catch((err) => {
         console.log("err", err);
+        toast.error("Something went wrong");
       });
   };
 

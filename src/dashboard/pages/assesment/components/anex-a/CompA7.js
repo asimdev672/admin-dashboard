@@ -467,6 +467,7 @@ export default function CompA7() {
       })
       .catch((err) => {
         console.log("err", err);
+        toast.error("Something went wrong");
       });
   };
   return (

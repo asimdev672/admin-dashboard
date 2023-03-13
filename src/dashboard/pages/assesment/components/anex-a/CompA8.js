@@ -1379,6 +1379,7 @@ export default function CompA8() {
       })
       .catch((err) => {
         console.log("err", err);
+        toast.error("Something went wrong");
       });
   };
   return (

@@ -316,6 +316,7 @@ export default function CompA6() {
       })
       .catch((err) => {
         console.log("err", err);
+        toast.error("Something went wrong");
       });
   };
   return (

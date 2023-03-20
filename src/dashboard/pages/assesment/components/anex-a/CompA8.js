@@ -24,8 +24,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -62,8 +62,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -99,8 +99,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -136,8 +136,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -175,8 +175,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -213,7 +213,7 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
+          { point_a: "#Integrity" },
         ],
         td_c: [
           {
@@ -254,8 +254,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -294,8 +294,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -334,8 +334,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -553,8 +553,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -592,8 +592,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -668,8 +668,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -707,8 +707,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -746,8 +746,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -784,8 +784,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -822,8 +822,8 @@ export default function CompA8() {
             {
               point_a: "#confidentiality",
             },
-            { ponit_a: "#Integrity" },
-            { ponit_a: "#Availibilty" },
+            { point_a: "#Integrity" },
+            { point_a: "#Availibilty" },
           ],
           td_c: [
             {
@@ -860,8 +860,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -897,8 +897,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -934,8 +934,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -972,8 +972,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -1011,8 +1011,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -1049,8 +1049,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -1087,8 +1087,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -1127,8 +1127,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -1169,8 +1169,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -1207,8 +1207,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -1245,7 +1245,7 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
+          { point_a: "#Integrity" },
         ],
         td_c: [
           {
@@ -1281,8 +1281,8 @@ export default function CompA8() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {

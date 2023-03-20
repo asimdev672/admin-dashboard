@@ -23,8 +23,8 @@ export default function CompA6() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -60,8 +60,8 @@ export default function CompA6() {
           {
             point_a: "#confidentiality",
           },
-          { ponit_a: "#Integrity" },
-          { ponit_a: "#Availibilty" },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
         td_c: [
           {
@@ -89,8 +89,8 @@ export default function CompA6() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c:[ {
           point_a: "#Protect",
@@ -113,16 +113,16 @@ export default function CompA6() {
       help_data: {
         td_a:[ {
           point_a: "#Preventive"},
-          {ponit_a: "#corrective"},
+          {point_a: "#corrective"},
         ],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c: [{
           point_a: "#Protect"},
-          {ponit_a: "#Respond"},
+          {point_a: "#Respond"},
         ],
         td_d: [{
           point_a: "#Human_resource_security",
@@ -143,8 +143,8 @@ export default function CompA6() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c: [{
           point_a: "Protect",
@@ -177,8 +177,8 @@ export default function CompA6() {
         }],
         td_d:[ {
           point_a: "#Human_resource_security"},
-         { ponit_a: " #Information_protection"},
-         { ponit_a: " #Supplier_relationships"},
+         { point_a: " #Information_protection"},
+         { point_a: " #Supplier_relationships"},
         ],
         td_e:[ {
           point_a: "#Governance_and_Ecosystem",
@@ -198,16 +198,16 @@ export default function CompA6() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c:[ {
           point_a: "#Protect",
         }],
         td_d: [{
           point_a: "#Asset_management"},
-          {ponit_a: "#Information_protection"},
-          {ponit_a: "#Physical_security"},
+          {point_a: "#Information_protection"},
+          {point_a: "#Physical_security"},
           {point_a: "#System_and_network_security"},
         ],
         td_e: [{
@@ -228,8 +228,8 @@ export default function CompA6() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c: [{
           point_a: "#Detect",
@@ -243,6 +243,7 @@ export default function CompA6() {
       },
     },
   ];
+
   const [controlerA6, setControlerA6] = useState(A6);
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(true);

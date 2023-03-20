@@ -89,9 +89,9 @@ export default function AuditPlane() {
                   style={{ color: "#00c057" }}
                   onClick={()=>setAnexA(!anexA)}
                 />
-                <span>Annex</span>
+                <span>access control</span>
               </div>
-              <p className="mt-md-3 mt-0">Annex A</p>
+              <p className="mt-md-3 mt-0">Access Control</p>
             </div>
           </div>
         </header>

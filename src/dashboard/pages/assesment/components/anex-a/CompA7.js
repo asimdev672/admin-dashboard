@@ -19,8 +19,8 @@ export default function CompA7() {
     }],
     td_b: [{
       point_a: "#confidentiality"},
-      {ponit_a: "#Integrity"},
-     { ponit_a: "#Availibilty"},
+      {point_a: "#Integrity"},
+     { point_a: "#Availibilty"},
     ],
     td_c: [{
         point_a: "#Protect",
@@ -46,8 +46,8 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c: [{
             point_a: "#Protect",
@@ -74,15 +74,15 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c: [{
             point_a: "#Protect",
         }],
         td_d: [{
             point_a: "#Physical_security"},
-            {ponit_a: "#Asset_management"},
+            {point_a: "#Asset_management"},
         ],
         td_e: [{
             point_a: "Protection",
@@ -99,23 +99,23 @@ export default function CompA7() {
     help_data: {
         td_a:[ {
             point_a: "#Preventive"},
-           { ponit_a: "#Detective"},
+           { point_a: "#Detective"},
         ],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c:[ {
             point_a: "#Protect"},
-            {ponit_a: "#Detect"},
+            {point_a: "#Detect"},
         ],
         td_d:[ {
             point_a: "#Physical_security",
         }],
         td_e:[ {
             point_a: "Protection"},
-            {ponit_a: "Defence"},
+            {point_a: "Defence"},
         ],
         },
         },
@@ -132,8 +132,8 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c: [{
             point_a: "#Protect",
@@ -159,8 +159,8 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c: [{
             point_a: "#Protect",
@@ -211,15 +211,15 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c:[ {
             point_a: "#Protect",
         }],
         td_d: [{
             point_a: "#Physical_security"},
-            {ponit_a: "#Asset_management"},
+            {point_a: "#Asset_management"},
         ],
         td_e: [{
             point_a: "Protection",
@@ -239,15 +239,15 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c:[ {
             point_a: "#Protect",
         }],
         td_d:[ {
             point_a: "#Physical_security"},
-            {ponit_a: "#Asset_management"},
+            {point_a: "#Asset_management"},
         ],
         td_e: [{
             point_a: "Protection",
@@ -267,15 +267,15 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c:[ {
             point_a: "#Protect",
         }],
         td_d: [{
             point_a: "#Physical_security"},
-            {ponit_a: "#Asset_management"},
+            {point_a: "#Asset_management"},
         ],
         td_e: [{
             point_a: "Protection",
@@ -292,11 +292,11 @@ export default function CompA7() {
     help_data: {
         td_a: [{
             point_a: "#Preventive"},
-           { ponit_a: "#Detective"},
+           { point_a: "#Detective"},
         ],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
+          {point_a: "#Integrity"},
         ],
         td_c:[ {
             point_a: "#Protect"},
@@ -323,7 +323,7 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
+          {point_a: "#Integrity"},
         ],
         td_c: [{
             point_a: "#Protect",
@@ -349,15 +349,15 @@ export default function CompA7() {
         }],
         td_b: [{
           point_a: "#confidentiality"},
-          {ponit_a: "#Integrity"},
-         { ponit_a: "#Availibilty"},
+          {point_a: "#Integrity"},
+         { point_a: "#Availibilty"},
         ],
         td_c:[ {
             point_a: "#Protect",
         }],
         td_d: [{
             point_a: "#Physical_security"},
-            {ponit_a: "#Asset_management"},
+            {point_a: "#Asset_management"},
         ],
         td_e:[ {
             point_a: "Protection"},
@@ -384,7 +384,7 @@ export default function CompA7() {
         }],
         td_d: [{
             point_a: "#Physical_security"},
-            {ponit_a: "#Asset_management"},
+            {point_a: "#Asset_management"},
         ],
         td_e:[ {
             point_a: "Protection",

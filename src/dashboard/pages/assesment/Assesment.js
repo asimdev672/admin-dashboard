@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Assesment.scss";
 import { CgChevronDoubleRightO } from "react-icons/cg";
-import { MdTableView } from "react-icons/md";
+import { MdAdsClick, MdTableView } from "react-icons/md";
 import { FcPlus } from "react-icons/fc";
 import { RiDeleteBin6Line, RiFileExcel2Fill } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -28,6 +28,7 @@ export default function AuditPlane() {
           <p
             className="text-start mb-md-0 mb-2 pt-md-3 fs-6"
             onClick={() => setAnexA("Assesment")}
+            style={{ cursor: "pointer" }}
           >
             Assesment
           </p>
@@ -99,7 +100,7 @@ export default function AuditPlane() {
             {/* Access Control  */}
             <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
               <div className="ico--main ">
-                <GiSolarPower
+                <MdAdsClick
                   className="icc"
                   style={{ color: "#00c057" }}
                   onClick={() => setAnexA("access_control")}

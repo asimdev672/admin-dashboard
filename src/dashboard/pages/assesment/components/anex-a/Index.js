@@ -9,26 +9,30 @@ export default function MainAnex() {
   const [show, setShow] = useState(false);
   return (
     <>
-    <h3 className="text-center my-3" style={{fontWeight: '700',
-    color: '#024264'}}>Annex A</h3>
+      <h3
+        className="text-center my-3"
+        style={{ fontWeight: "700", color: "#024264" }}
+      >
+        Annex A
+      </h3>
       <CompA5 /> <br />
       <CompA6 /> <br />
       <CompA7 /> <br />
       <CompA8 /> <br />
       <div className="anexA">
-      {show ? (
-        <div className="chatBox">
-          <Chat />
+        {show ? (
+          <div className="chatBox">
+            <Chat />
+          </div>
+        ) : (
+          ""
+        )}
+        <div className="chat-main">
+          <BsFillChatDotsFill
+            className="chat-ico"
+            onClick={() => setShow(!show)}
+          />
         </div>
-      ) : (
-        ""
-      )}
-      <div className="chat-main">
-        <BsFillChatDotsFill
-          className="chat-ico"
-          onClick={() => setShow(!show)}
-        />
-      </div>
       </div>
     </>
   );

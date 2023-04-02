@@ -45,7 +45,7 @@ export default function AssignmentDirect() {
                   </div>
                 </div>
                 {/* filter icons  */}
-                <FaFilter className="pointer" onClick={handleShow}/>
+                <FaFilter className="pointer" onClick={handleShow} />
                 {/* setting icons  */}
                 <AiFillSetting
                   className="me-2 pointer"
@@ -111,10 +111,15 @@ export default function AssignmentDirect() {
       </div>
 
       {/* ==========  Filter ========== */}
-   
-      <Offcanvas placement='top' name='top'  show={offCanShow} onHide={handleClose}>
+
+      <Offcanvas
+        placement="top"
+        name="top"
+        show={offCanShow}
+        onHide={handleClose}
+      >
         <Offcanvas.Body>
-            <Filter setOffCanShow={setOffCanShow}/>
+          <Filter setOffCanShow={setOffCanShow} />
         </Offcanvas.Body>
       </Offcanvas>
     </>

@@ -51,28 +51,27 @@
     height: auto;
     color: rgb(57, 55, 55);
 
-    p{
+    p {
       font-size: 18px;
       color: rgb(57, 55, 55);
       text-align: justify;
       font-weight: 300;
     }
-    ul{
-      li{
-        list-style: none;
+    ul {
+      li {
         padding: 1rem;
         font-weight: 300;
-        
+        margin-left: 2rem;
       }
     }
   }
-    // =======section--C
-    .section--C {
-      background-color: rgb(19 63 129/1);
-      overflow: hidden;
-      text-align: center;
-      height: auto;
-    }
+  // =======section--C
+  .section--C {
+    background-color: rgb(19 63 129/1);
+    overflow: hidden;
+    text-align: center;
+    height: auto;
+  }
   .navbar {
     // background-color: #186b9c;
     background-color: rgb(43 43 43/1);
@@ -80,6 +79,7 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1;
 
     .navbar-brand {
       color: white;
@@ -113,24 +113,32 @@
     .software {
     }
   }
-  .landing--footer{
+  .landing--footer {
     margin-top: 2rem;
     padding-bottom: 2rem;
     padding-top: 2rem;
     font-weight: 200;
     background-color: rgb(43 43 43/1);
-    ul{
+    ul {
       display: flex;
       width: 60%;
       padding-left: 0;
       margin-left: 0;
       justify-content: space-between;
 
-      li{
+      li {
         list-style: none;
         cursor: pointer;
-        text-transform: lowercase;
         font-size: 15px;
+        font-weight: 400;
+        transition: all 0.3s ease;
+        &:hover {
+          font-weight: 500;
+          font-size: 16px;
+          color: rgb(0, 153, 255);
+          text-decoration: underline;
+          transition: all 0.2s ease;
+        }
       }
     }
   }

@@ -59,7 +59,7 @@ export default function Landing() {
             </div>
           </nav>
           <div className="landing--body">
-            <div id='home' className="container">
+            <div id="home" className="container">
               <div className="row row-cols-md-2 row-cols-1 mt-5">
                 <div className="col ">
                   <div className=" pt-md-5  pt-2 ps-3 content">
@@ -118,9 +118,7 @@ export default function Landing() {
               </div>
               <div className="col">
                 <div>
-                  <h1 className=" ps-4 pp">
-                    ISO27k1 Toolkit  built
-                  </h1>
+                  <h1 className=" ps-4 pp">ISO27k1 Toolkit built</h1>
 
                   <ul>
                     <li> Full two-way API capability</li>
@@ -128,12 +126,8 @@ export default function Landing() {
                     <li> Fully encrypted working environment</li>
                     <li> Using only ISO27001 as standard </li>
                     <li> Best-in-class data security protocols</li>
-                    <li>
-                    	SMART offline working
-                    </li>
-                    <li>
-                    •	A Web based interface (i.e. Nessus)
-                    </li>
+                    <li>SMART offline working</li>
+                    <li>• A Web based interface (i.e. Nessus)</li>
                   </ul>
                 </div>
               </div>
@@ -154,7 +148,9 @@ export default function Landing() {
               <div className="col">
                 <h1>About Us</h1>
                 <p>
-                ISO27k1 Toolkit is about more than just file sharing. Our software solutions are an operating system purpose-built to help you, your team, and your clients increase productivity.
+                  ISO27k1 Toolkit is about more than just file sharing. Our
+                  software solutions are an operating system purpose-built to
+                  help you, your team, and your clients increase productivity.
                 </p>
                 <p>
                   Better Auditing Experience with ISO27K1 Toolkit, We built
@@ -162,7 +158,9 @@ export default function Landing() {
                   professional life easier.
                 </p>
                 <p>
-                An integrated audit management software system helps you comply with the standards of a wide range of internal and external audits.
+                  An integrated audit management software system helps you
+                  comply with the standards of a wide range of internal and
+                  external audits.
                 </p>
               </div>
               <div className="col">
@@ -176,15 +174,28 @@ export default function Landing() {
             <div className="row">
               <div className="col-md-9 col-12">
                 <ul>
-                  <li>Our Software</li>
-                  <li>About Us</li>
-                  <li>Login</li>
-                  <li>Sign Up</li>
+                  <a className="nav-link" href="#home">
+                    <li>Home</li>
+                  </a>
+                  <a className="nav-link" href="#software">
+                    <li>Our Software</li>
+                  </a>
+                  <a className="nav-link" href="#about">
+                    <li>About Us</li>
+                  </a>
+                  <Link className="nav-link" to="/login">
+                    <li>Login</li>
+                  </Link>
+                  <Link className="nav-link" to="/sign-up">
+                    <li>Sign Up</li>
+                  </Link>
                 </ul>
-                <p>Copyright 2023. All Rights Reserved</p>
               </div>
             </div>
           </div>
+          <p className="text-center mt-4">
+            Copyright 2023. All Rights Reserved
+          </p>
         </footer>
       </div>
     </>

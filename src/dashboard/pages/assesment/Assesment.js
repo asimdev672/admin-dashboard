@@ -5,21 +5,19 @@ import { MdTableView } from "react-icons/md";
 import { FcPlus } from "react-icons/fc";
 import { RiDeleteBin6Line, RiFileExcel2Fill } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { GiLevelEndFlag,GiSolarPower } from "react-icons/gi";
+import { GiLevelEndFlag, GiSolarPower } from "react-icons/gi";
 import { BsLayerForward } from "react-icons/bs";
 
-import {
-  AiOutlineDoubleLeft,
-  AiOutlineDoubleRight,
-} from "react-icons/ai";
+import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { TbTriangleInverted } from "react-icons/tb";
 import { Offcanvas } from "react-bootstrap";
 import AddForm from "./components/AddForm";
 import MainAnex from "./components/anex-a/Index";
+import MainAccessControl from "./components/access-control/Index";
 export default function AuditPlane() {
   const [offCanShow, setOffCanShow] = useState(false);
-  const [anexA, setAnexA] = useState(false);
+  const [anexA, setAnexA] = useState("Assesment");
   // handleAddAdultForm
   const handleClose = () => setOffCanShow(false);
   const handleShow = () => setOffCanShow(true);
@@ -27,7 +25,12 @@ export default function AuditPlane() {
     <>
       <div className="AuditPlane_main">
         <header className="AuditPlane_header px-md-3">
-          <p className="text-start mb-md-0 mb-2 pt-md-3 fs-6">Assesment</p>
+          <p
+            className="text-start mb-md-0 mb-2 pt-md-3 fs-6"
+            onClick={() => setAnexA("Assesment")}
+          >
+            Assesment
+          </p>
           <div className="d-flex align-items-center gap-md-4 gap-2 flex-wrap flex--md-nowrap">
             {/* Edit  */}
             <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
@@ -87,9 +90,21 @@ export default function AuditPlane() {
                 <GiSolarPower
                   className="icc"
                   style={{ color: "#00c057" }}
-                  onClick={()=>setAnexA(!anexA)}
+                  onClick={() => setAnexA("mainAnex")}
                 />
-                <span>access control</span>
+                <span>Annex A</span>
+              </div>
+              <p className="mt-md-3 mt-0">Annex A</p>
+            </div>
+            {/* Access Control  */}
+            <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
+              <div className="ico--main ">
+                <GiSolarPower
+                  className="icc"
+                  style={{ color: "#00c057" }}
+                  onClick={() => setAnexA("access_control")}
+                />
+                <span>Access Control</span>
               </div>
               <p className="mt-md-3 mt-0">Access Control</p>
             </div>
@@ -97,87 +112,100 @@ export default function AuditPlane() {
         </header>
         {/* AuditPlane_body  */}
         <div className="AuditPlane_body">
-          {anexA? <div className="">
-          <MainAnex/>
-          </div>: <div>
-          {/* search bar */}
-          <div className="search">
+          {anexA === "Assesment" ? (
             <div>
-              <BiSearch className="fs-4" />
-              <input type="search" />
-            </div>
-          </div>
-          {/* table  */}
-          <div>
-            <div className="table-responsive-md AudiltTable-main">
-              <table className="table table-striped table-bordered  table-scroll">
-                <thead>
-                  <tr>
-                    <th scope="col">
-                      <p>
-                        <TbTriangleInverted className="me-1" />
-                        Assesment Title
-                      </p>
-                    </th>
-                    <th scope="col">
-                      <p>
-                        <TbTriangleInverted className="me-1" />
-                        Description
-                      </p>
-                    </th>
-                    <th scope="col">
-                      <p>
-                        <TbTriangleInverted className="me-1" />
-                        State
-                      </p>
-                    </th>
-                    <th scope="col">
-                      <p className="para">
-                        <TbTriangleInverted className="me-1" />
-                        Start Date
-                      </p>
-                    </th>
-                    <th scope="col">
-                      <p className="para">
-                        <TbTriangleInverted className="me-1" />
-                        End Date
-                      </p>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[1, 2, 3, 4, 5].map((e) => (
-                    <tr>
-                      <td>Shahana</td>
-                      <td>Mark</td>
-                      <td>@mdo</td>
-                      <td>0</td>
-                      <td>0</td>
-                     
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="table_footer border">
+              {/* search bar */}
+              <div className="search">
+                <div>
+                  <BiSearch className="fs-4" />
+                  <input type="search" />
+                </div>
+              </div>
+              {/* table  */}
               <div>
-                <AiOutlineDoubleLeft className="fs-4 border me-2 py-1" />
-                <IoIosArrowBack className="fs-4 border me-2 py-1" />
-              </div>
-              <div className="ft">
-                page
-                <input type="text" />
-                of 1 Total: 5
-              </div>
-              <div>
-                <IoIosArrowForward className="fs-4 border me-2 py-1" />
-                <AiOutlineDoubleRight className="fs-4 border me-2 py-1" />
+                <div className="table-responsive-md AudiltTable-main">
+                  <table className="table table-striped table-bordered  table-scroll">
+                    <thead>
+                      <tr>
+                        <th scope="col">
+                          <p>
+                            <TbTriangleInverted className="me-1" />
+                            Assesment Title
+                          </p>
+                        </th>
+                        <th scope="col">
+                          <p>
+                            <TbTriangleInverted className="me-1" />
+                            Description
+                          </p>
+                        </th>
+                        <th scope="col">
+                          <p>
+                            <TbTriangleInverted className="me-1" />
+                            State
+                          </p>
+                        </th>
+                        <th scope="col">
+                          <p className="para">
+                            <TbTriangleInverted className="me-1" />
+                            Start Date
+                          </p>
+                        </th>
+                        <th scope="col">
+                          <p className="para">
+                            <TbTriangleInverted className="me-1" />
+                            End Date
+                          </p>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[1, 2, 3, 4, 5].map((e) => (
+                        <tr>
+                          <td>Shahana</td>
+                          <td>Mark</td>
+                          <td>@mdo</td>
+                          <td>0</td>
+                          <td>0</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="table_footer border">
+                  <div>
+                    <AiOutlineDoubleLeft className="fs-4 border me-2 py-1" />
+                    <IoIosArrowBack className="fs-4 border me-2 py-1" />
+                  </div>
+                  <div className="ft">
+                    page
+                    <input type="text" />
+                    of 1 Total: 5
+                  </div>
+                  <div>
+                    <IoIosArrowForward className="fs-4 border me-2 py-1" />
+                    <AiOutlineDoubleRight className="fs-4 border me-2 py-1" />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          </div>}
-         
-         
+          ) : (
+            ""
+          )}
+          {anexA === "mainAnex" ? (
+            <div className="">
+              <MainAnex />
+            </div>
+          ) : (
+            ""
+          )}
+          {anexA === "access_control" ? (
+            <div className="">
+              <MainAccessControl />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       {/* ==========  Add AduitPlan ========== */}
@@ -190,7 +218,7 @@ export default function AuditPlane() {
         style={{ height: "94vh", top: "6vh" }}
       >
         <Offcanvas.Body>
-          <AddForm setOffCanShow={setOffCanShow}/>
+          <AddForm setOffCanShow={setOffCanShow} />
         </Offcanvas.Body>
       </Offcanvas>
     </>

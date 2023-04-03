@@ -2,395 +2,66 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 export default function CompA7() {
-  const A7 =  [
+  const A7 = [
     {
-    srNo: 7.1,
-    controller: 'Physical security perimeters',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-    td_a:[ {
-        point_a: "#Preventive",
-    }],
-    td_b: [{
-      point_a: "#confidentiality"},
-      {point_a: "#Integrity"},
-     { point_a: "#Availibilty"},
-    ],
-    td_c: [{
-        point_a: "#Protect",
-    }],
-    td_d: [{
-    point_a: "#Physical_security",
-    }],
-    td_e:[ {
-        point_a: "Protection",
-    }],
-    },
+      srNo: 7.1,
+      controller: "Resources",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
     },
     {
-    srNo: 7.2,
-    controller: 'Physical entry',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a:[ {
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c: [{
-            point_a: "#Protect",
-        }],
-        td_d:[ {
-            point_a: "#Physical_security"},
-            {point_a: "#Identity_and_Access_Management"},
-        ],
-        td_e:[ {
-            point_a: "Protection",
-        }],
-        },
-        },
+      srNo: 7.2,
+      controller: "Competence",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
+    },
     {
-    srNo: 7.3,
-    controller: 'Securing offices, rooms and facilities',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a: [{
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c: [{
-            point_a: "#Protect",
-        }],
-        td_d: [{
-            point_a: "#Physical_security"},
-            {point_a: "#Asset_management"},
-        ],
-        td_e: [{
-            point_a: "Protection",
-        }],
-        },
-        },
+      srNo: 7.3,
+      controller: "Awareness",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
+    },
     {
-    srNo: 7.4,
-    controller: 'Physical security monitoring',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a:[ {
-            point_a: "#Preventive"},
-           { point_a: "#Detective"},
-        ],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c:[ {
-            point_a: "#Protect"},
-            {point_a: "#Detect"},
-        ],
-        td_d:[ {
-            point_a: "#Physical_security",
-        }],
-        td_e:[ {
-            point_a: "Protection"},
-            {point_a: "Defence"},
-        ],
-        },
-        },
+      srNo: 7.4,
+      controller: "Communication",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
+    },
+    // control: 7.5 = Documented information
     {
-    srNo: 7.5,
-    controller: 'Protecting against physical and environmental threats',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a:[ {
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c: [{
-            point_a: "#Protect",
-        }],
-        td_d:[ {
-            point_a: "#Physical_security",
-        }],
-        td_e: [{
-            point_a: "Protection",
-        }],
-        },
-        },
+      srNo: "7.5.1",
+      controller: "General",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
+    },
     {
-    srNo: 7.6,
-    controller: 'Working in secure areas',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a:[ {
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c: [{
-            point_a: "#Protect",
-        }],
-        td_d:[ {
-            point_a: "#Physical_security",
-        }],
-        td_e:[ {
-            point_a: "Protection",
-        }],
-        },
-        },
+      srNo: "7.5.2",
+      controller: "Creating and updating",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
+    },
     {
-    srNo: 7.7,
-    controller: 'Clear desk and clear screen',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a: [{
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-        point_a: "#confidentiality",
-        }],
-        td_c:[ {
-            point_a: "#Protect",
-        }],
-        td_d: [{
-            point_a: "#Physical_security",
-        }],
-        td_e:[ {
-            point_a: "Protection",
-        }],
-        },
-        },
-    {
-    srNo: 7.8,
-    controller: 'Equipment siting and protection',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a: [{
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c:[ {
-            point_a: "#Protect",
-        }],
-        td_d: [{
-            point_a: "#Physical_security"},
-            {point_a: "#Asset_management"},
-        ],
-        td_e: [{
-            point_a: "Protection",
-        }],
-        },
-        },
-    {
-    srNo: 7.9,
-    controller: 'Security of assets off-premises',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a:[ {
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c:[ {
-            point_a: "#Protect",
-        }],
-        td_d:[ {
-            point_a: "#Physical_security"},
-            {point_a: "#Asset_management"},
-        ],
-        td_e: [{
-            point_a: "Protection",
-        }],
-        },
-        },
-    {
-    srNo: 7.10,
-    controller: 'Storage media',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a:[ {
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c:[ {
-            point_a: "#Protect",
-        }],
-        td_d: [{
-            point_a: "#Physical_security"},
-            {point_a: "#Asset_management"},
-        ],
-        td_e: [{
-            point_a: "Protection",
-        }],
-        },
-        },
-    {
-    srNo: 7.11,
-    controller: 'Supporting utilities',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a: [{
-            point_a: "#Preventive"},
-           { point_a: "#Detective"},
-        ],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-        ],
-        td_c:[ {
-            point_a: "#Protect"},
-            {point_a: "#Detect"},
-        ],
-        td_d: [{
-            point_a: "#Physical_security",
-        }],
-        td_e:[ {
-            point_a: "Protection",
-        }],
-        },
-        },
-    {
-    srNo: 7.12,
-    controller: 'Cabling security',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a:[ {
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-        ],
-        td_c: [{
-            point_a: "#Protect",
-        }],
-        td_d: [{
-            point_a: "#Physical_security",
-        }],
-        td_e:[ {
-            point_a: "Protection",
-        }],
-        },
-        },
-    {
-    srNo: 7.13,
-    controller: 'Equipment maintenance',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a: [{
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
-        ],
-        td_c:[ {
-            point_a: "#Protect",
-        }],
-        td_d: [{
-            point_a: "#Physical_security"},
-            {point_a: "#Asset_management"},
-        ],
-        td_e:[ {
-            point_a: "Protection"},
-           { point_a: "Resilience"},
-        ],
-        },
-        },
-    {
-    srNo: 7.14,
-    controller: 'Secure disposal or re-use of equipment',
-    condition: ' ',
-    description: ' ',
-    files: [],
-    color: false,
-    help_data: {
-        td_a:[ {
-            point_a: "#Preventive",
-        }],
-        td_b: [{
-        point_a: "#confidentiality",
-        }],
-        td_c: [{
-            point_a: "#Protect",
-        }],
-        td_d: [{
-            point_a: "#Physical_security"},
-            {point_a: "#Asset_management"},
-        ],
-        td_e:[ {
-            point_a: "Protection",
-        }],
-        },
-        },
-    ]
-    
-    
+      srNo: "7.5.3",
+      controller: "Control of documented information",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
+    },
+  ];
+
   const [controlerA7, setControlerA7] = useState(A7);
   const [show, setShow] = useState(true);
 
@@ -425,7 +96,7 @@ export default function CompA7() {
     setControlerA7(newArr);
   };
   // handleSubmit
-  const handleSubmit = (el,index) => {
+  const handleSubmit = (el, index) => {
     console.log("inputData 5", el);
     const newFormData = new FormData();
     newFormData.append("srNo", el.srNo);
@@ -443,10 +114,10 @@ export default function CompA7() {
         let copArr = [...controlerA7];
         let obj = copArr[index];
         obj.color = true;
-        obj.condition = '';
-        obj.description = '';
+        obj.condition = "";
+        obj.description = "";
         obj.files = [];
-        copArr[index]=obj
+        copArr[index] = obj;
         setControlerA7(copArr);
         toast.success("Successfully Added");
         console.log(
@@ -465,13 +136,13 @@ export default function CompA7() {
         {/* ***************Begin::Controller For A7****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-            7 Context of the organisation
+            Support
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
               {controlerA7.map((el, index) => (
                 <table key={index}>
-                  <tr className={`${el.color?'green':''}`}>
+                  <tr className={`${el.color ? "green" : ""}`}>
                     {/************Begin:: Sr No :***********  */}
                     <td>
                       <p style={{ width: "1rem" }}>{el.srNo}</p>
@@ -503,8 +174,8 @@ export default function CompA7() {
                     </td>
                     <td>
                       <textarea
-                         className="mt-3"
-                         style={{ height: "40px", width:'17rem' }}
+                        className="mt-3"
+                        style={{ height: "40px", width: "17rem" }}
                         value={controlerA7[index].description}
                         name="description"
                         form="usrform"
@@ -539,7 +210,7 @@ export default function CompA7() {
                     <td>
                       <button
                         className="submitBtn"
-                        onClick={() => handleSubmit(el,index)}
+                        onClick={() => handleSubmit(el, index)}
                       >
                         Submit
                       </button>
@@ -552,7 +223,6 @@ export default function CompA7() {
         </div>
         {/* ***************End::Controller For A7********************** */}
       </div>
-
     </>
   );
 }

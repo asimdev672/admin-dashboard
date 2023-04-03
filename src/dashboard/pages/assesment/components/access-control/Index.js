@@ -5,6 +5,7 @@ import CompA7 from "./CompA7";
 import CompA8 from "./CompA8";
 import CompA9 from "./CompA9";
 import CompA10 from "./CompA10";
+import CompA4 from "./CompA4";
 export default function MainAccessControl() {
   return (
     <>
@@ -14,6 +15,7 @@ export default function MainAccessControl() {
       >
         Access Control
       </h3>
+      <CompA4 /> <br />
       <CompA5 /> <br />
       <CompA6 /> <br />
       <CompA7 /> <br />

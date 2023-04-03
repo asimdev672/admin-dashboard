@@ -4,529 +4,54 @@ import { toast } from "react-toastify";
 export default function CompA9() {
   const A9 = [
     {
-      srNo: 7.1,
-      controller: "Physical security perimeters",
-      condition: " ",
-      description: " ",
+      srNo: 9.1,
+      controller: "Monitoring, measurement, analysis and evaluation",
+      condition: "",
+      description: "",
       files: [],
       color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
+    },
+    // control: 9.2 = Internal audit
+    {
+      srNo: "9.2.1",
+      controller: "General",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
     },
     {
-      srNo: 7.2,
-      controller: "Physical entry",
-      condition: " ",
-      description: " ",
+      srNo: "9.2.2",
+      controller: "Internal audit programme",
+      condition: "",
+      description: "",
       files: [],
       color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-          { point_a: "#Identity_and_Access_Management" },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
+    },
+    // control: 9.3 = Management review
+    {
+      srNo: "9.3.1",
+      controller: "General",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
     },
     {
-      srNo: 7.3,
-      controller: "Securing offices, rooms and facilities",
-      condition: " ",
-      description: " ",
+      srNo: "9.3.2",
+      controller: "Management review inputs",
+      condition: "",
+      description: "",
       files: [],
       color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-          { point_a: "#Asset_management" },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
     },
     {
-      srNo: 7.4,
-      controller: "Physical security monitoring",
-      condition: " ",
-      description: " ",
+      srNo: "9.3.3",
+      controller: "Management review results",
+      condition: "",
+      description: "",
       files: [],
       color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-          { point_a: "#Detective" },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-          { point_a: "#Detect" },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-          { point_a: "Defence" },
-        ],
-      },
-    },
-    {
-      srNo: 7.5,
-      controller: "Protecting against physical and environmental threats",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
-    },
-    {
-      srNo: 7.6,
-      controller: "Working in secure areas",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
-    },
-    {
-      srNo: 7.7,
-      controller: "Clear desk and clear screen",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
-    },
-    {
-      srNo: 7.8,
-      controller: "Equipment siting and protection",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-          { point_a: "#Asset_management" },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
-    },
-    {
-      srNo: 7.9,
-      controller: "Security of assets off-premises",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-          { point_a: "#Asset_management" },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
-    },
-    {
-      srNo: 7.1,
-      controller: "Storage media",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-          { point_a: "#Asset_management" },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
-    },
-    {
-      srNo: 7.11,
-      controller: "Supporting utilities",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-          { point_a: "#Detective" },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-          { point_a: "#Detect" },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
-    },
-    {
-      srNo: 7.12,
-      controller: "Cabling security",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
-    },
-    {
-      srNo: 7.13,
-      controller: "Equipment maintenance",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-          { point_a: "#Integrity" },
-          { point_a: "#Availibilty" },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-          { point_a: "#Asset_management" },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-          { point_a: "Resilience" },
-        ],
-      },
-    },
-    {
-      srNo: 7.14,
-      controller: "Secure disposal or re-use of equipment",
-      condition: " ",
-      description: " ",
-      files: [],
-      color: false,
-      help_data: {
-        td_a: [
-          {
-            point_a: "#Preventive",
-          },
-        ],
-        td_b: [
-          {
-            point_a: "#confidentiality",
-          },
-        ],
-        td_c: [
-          {
-            point_a: "#Protect",
-          },
-        ],
-        td_d: [
-          {
-            point_a: "#Physical_security",
-          },
-          { point_a: "#Asset_management" },
-        ],
-        td_e: [
-          {
-            point_a: "Protection",
-          },
-        ],
-      },
     },
   ];
 
@@ -604,7 +129,7 @@ export default function CompA9() {
         {/* ***************Begin::Controller For A9****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-            9 Context of the organisation
+            Performance evaluation
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>

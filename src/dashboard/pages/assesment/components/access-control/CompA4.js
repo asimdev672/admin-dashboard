@@ -1,45 +1,38 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-export default function CompA6() {
-  const A6 = [
-    // control:6.1 = Actions to address risks and opportunities
+import { BiHelpCircle } from "react-icons/bi";
+export default function CompA4() {
+  const A4 = [
     {
-      srNo: "6.1.1",
-      controller: "General",
+      srNo: 4.1,
+      controller: "Understanding the organization and its context",
       condition: "",
       description: "",
       files: [],
       color: false,
     },
     {
-      srNo: "6.1.2",
-      controller: "Information security risk assessment",
-      condition: "",
-      description: "",
-      files: [],
-      color: false,
-    },
-    {
-      srNo: "6.1.3",
-      controller: "Information security risk treatment",
-      condition: "",
-      description: "",
-      files: [],
-      color: false,
-    },
-    {
-      srNo: 6.2,
+      srNo: 4.2,
       controller:
-        "Information security objectives and planning to achieve them",
+        "Understanding the needs and expectations of interested parties",
       condition: "",
       description: "",
       files: [],
       color: false,
     },
     {
-      srNo: 6.3,
-      controller: "Planning of changes",
+      srNo: 4.3,
+      controller:
+        "Determining the scope of the information security management system",
+      condition: "",
+      description: "",
+      files: [],
+      color: false,
+    },
+    {
+      srNo: 4.4,
+      controller: "Information security management system",
       condition: "",
       description: "",
       files: [],
@@ -47,7 +40,8 @@ export default function CompA6() {
     },
   ];
 
-  const [controlerA6, setControlerA6] = useState(A6);
+  const [controlerA4, setControlerA4] = useState(A4);
+  console.log("controlerA4", controlerA4);
   const [show, setShow] = useState(true);
 
   const handleShowHide = () => {
@@ -56,29 +50,29 @@ export default function CompA6() {
 
   // handleInputForm
   const handleInputForm = (val, index) => {
-    let newArr = [...controlerA6];
+    let newArr = [...controlerA4];
     let obj = newArr[index];
     obj.condition = val;
     newArr[index] = obj;
-    setControlerA6(newArr);
+    setControlerA4(newArr);
   };
   const handleInputFormDes = (val, index) => {
-    let newArr = [...controlerA6];
+    let newArr = [...controlerA4];
     let obj = newArr[index];
     obj.description = val;
     newArr[index] = obj;
-    setControlerA6(newArr);
+    setControlerA4(newArr);
   };
   // handleFile
   const handleFile = (e, index) => {
     let fileArr = [];
     fileArr.push(...e.target.files);
 
-    let newArr = [...controlerA6];
+    let newArr = [...controlerA4];
     let obj = newArr[index];
     obj.files = fileArr;
     newArr[index] = obj;
-    setControlerA6(newArr);
+    setControlerA4(newArr);
   };
   // handleSubmit
   const handleSubmit = (el, index) => {
@@ -96,14 +90,14 @@ export default function CompA6() {
       })
       .then((res) => {
         console.log("res", res);
-        let copArr = [...controlerA6];
+        let copArr = [...controlerA4];
         let obj = copArr[index];
         obj.color = true;
         obj.condition = "";
         obj.description = "";
         obj.files = [];
         copArr[index] = obj;
-        setControlerA6(copArr);
+        setControlerA4(copArr);
         toast.success("Successfully Added");
         console.log(
           "res",
@@ -115,17 +109,18 @@ export default function CompA6() {
         toast.error("Something went wrong");
       });
   };
+
   return (
     <>
       <div className="container-lg container-fluid anexA">
-        {/* ***************Begin::Controller For A6****************** */}
+        {/* ***************Begin::Controller For A4****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-            Planning
+            Context of the organization
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
-              {controlerA6.map((el, index) => (
+              {controlerA4.map((el, index) => (
                 <table key={index}>
                   <tr className={`${el.color ? "green" : ""}`}>
                     {/************Begin:: Sr No :***********  */}
@@ -136,14 +131,18 @@ export default function CompA6() {
 
                     {/************Begin::Controller Name :***********  */}
                     <td>
-                      <p className="overflow-hidden" style={{ width: "16rem" }}>
+                      <p
+                        id="data"
+                        className="overflow-hidden"
+                        style={{ width: "16rem" }}
+                      >
                         {el.controller}
                       </p>
                     </td>
                     {/************Begin::Controller Name :***********  */}
                     <td>
                       <select
-                        value={controlerA6[index].condition}
+                        value={controlerA4[index].condition}
                         name="condition"
                         onChange={(e) => handleInputForm(e.target.value, index)}
                       >
@@ -161,7 +160,7 @@ export default function CompA6() {
                       <textarea
                         className="mt-3"
                         style={{ height: "40px", width: "17rem" }}
-                        value={controlerA6[index].description}
+                        value={controlerA4[index].description}
                         name="description"
                         form="usrform"
                         onChange={(e) =>
@@ -172,19 +171,19 @@ export default function CompA6() {
                     <td>
                       <span className="position-relative d-block">
                         <span className="ico">
-                          {controlerA6[index].files.length}
+                          {controlerA4[index].files.length}
                         </span>
                       </span>
                       <div className="upload-btn-wrapper">
                         <label
                           className="fileUpload"
-                          htmlFor={`fileA6${index}`}
+                          htmlFor={`fileA4${index}`}
                         >
                           Upload a file
                           <input
                             type="file"
                             className="d-none"
-                            id={`fileA6${index}`}
+                            id={`fileA4${index}`}
                             onChange={(e) => handleFile(e, index)}
                             multiple
                             //  accept='.png, .jpg, .jpeg'
@@ -206,7 +205,7 @@ export default function CompA6() {
             </div>
           </div>
         </div>
-        {/* ***************End::Controller For A6********************** */}
+        {/* ***************End::Controller For A4********************** */}
       </div>
     </>
   );

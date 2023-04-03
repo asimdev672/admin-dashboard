@@ -84,23 +84,33 @@ export default function CompA6() {
       files: [],
       color: false,
       help_data: {
-        td_a:[ {
-          point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
+        td_a: [
+          {
+            point_a: "#Preventive",
+          },
         ],
-        td_c:[ {
-          point_a: "#Protect",
-        }],
-        td_d: [{
-          point_a: "#Human_resource_security",
-        }],
-        td_e: [{
-          point_a: "#Governance_and_Ecosystem",
-        }],
+        td_b: [
+          {
+            point_a: "#confidentiality",
+          },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
+        ],
+        td_c: [
+          {
+            point_a: "#Protect",
+          },
+        ],
+        td_d: [
+          {
+            point_a: "#Human_resource_security",
+          },
+        ],
+        td_e: [
+          {
+            point_a: "#Governance_and_Ecosystem",
+          },
+        ],
       },
     },
     {
@@ -111,23 +121,31 @@ export default function CompA6() {
       files: [],
       color: false,
       help_data: {
-        td_a:[ {
-          point_a: "#Preventive"},
-          {point_a: "#corrective"},
+        td_a: [
+          {
+            point_a: "#Preventive",
+          },
+          { point_a: "#corrective" },
         ],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
+        td_b: [
+          {
+            point_a: "#confidentiality",
+          },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
-        td_c: [{
-          point_a: "#Protect"},
-          {point_a: "#Respond"},
+        td_c: [
+          {
+            point_a: "#Protect",
+          },
+          { point_a: "#Respond" },
         ],
-        td_d: [{
-          point_a: "#Human_resource_security",
-        }],
-        td_e: [{point_a: "#Defence",}],
+        td_d: [
+          {
+            point_a: "#Human_resource_security",
+          },
+        ],
+        td_e: [{ point_a: "#Defence" }],
       },
     },
     {
@@ -138,24 +156,34 @@ export default function CompA6() {
       files: [],
       color: false,
       help_data: {
-        td_a: [{
-          point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
+        td_a: [
+          {
+            point_a: "#Preventive",
+          },
         ],
-        td_c: [{
-          point_a: "Protect",
-        }],
-        td_d:[ {
-          point_a: "#Human_resource_security"},
-          {point_a: "#Asset_management"},
+        td_b: [
+          {
+            point_a: "#confidentiality",
+          },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
-        td_e: [{
-          point_a: "#Governance_and_Ecosystem",
-        }],
+        td_c: [
+          {
+            point_a: "Protect",
+          },
+        ],
+        td_d: [
+          {
+            point_a: "#Human_resource_security",
+          },
+          { point_a: "#Asset_management" },
+        ],
+        td_e: [
+          {
+            point_a: "#Governance_and_Ecosystem",
+          },
+        ],
       },
     },
     {
@@ -166,23 +194,33 @@ export default function CompA6() {
       files: [],
       color: false,
       help_data: {
-        td_a:[ {
-          point_a: "#Preventive",
-        }],
-        td_b:[ {
-          point_a: "#confidentiality",
-        }],
-        td_c: [{
-          point_a: "Protect",
-        }],
-        td_d:[ {
-          point_a: "#Human_resource_security"},
-         { point_a: " #Information_protection"},
-         { point_a: " #Supplier_relationships"},
+        td_a: [
+          {
+            point_a: "#Preventive",
+          },
         ],
-        td_e:[ {
-          point_a: "#Governance_and_Ecosystem",
-        }],
+        td_b: [
+          {
+            point_a: "#confidentiality",
+          },
+        ],
+        td_c: [
+          {
+            point_a: "Protect",
+          },
+        ],
+        td_d: [
+          {
+            point_a: "#Human_resource_security",
+          },
+          { point_a: " #Information_protection" },
+          { point_a: " #Supplier_relationships" },
+        ],
+        td_e: [
+          {
+            point_a: "#Governance_and_Ecosystem",
+          },
+        ],
       },
     },
     {
@@ -193,26 +231,36 @@ export default function CompA6() {
       files: [],
       color: false,
       help_data: {
-        td_a:[ {
-          point_a: "#Preventive",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
+        td_a: [
+          {
+            point_a: "#Preventive",
+          },
         ],
-        td_c:[ {
-          point_a: "#Protect",
-        }],
-        td_d: [{
-          point_a: "#Asset_management"},
-          {point_a: "#Information_protection"},
-          {point_a: "#Physical_security"},
-          {point_a: "#System_and_network_security"},
+        td_b: [
+          {
+            point_a: "#confidentiality",
+          },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
         ],
-        td_e: [{
-          point_a: "#Protection",
-        }],
+        td_c: [
+          {
+            point_a: "#Protect",
+          },
+        ],
+        td_d: [
+          {
+            point_a: "#Asset_management",
+          },
+          { point_a: "#Information_protection" },
+          { point_a: "#Physical_security" },
+          { point_a: "#System_and_network_security" },
+        ],
+        td_e: [
+          {
+            point_a: "#Protection",
+          },
+        ],
       },
     },
     {
@@ -223,23 +271,33 @@ export default function CompA6() {
       files: [],
       color: false,
       help_data: {
-        td_a:[ {
-          point_a: "#Detective",
-        }],
-        td_b: [{
-          point_a: "#confidentiality"},
-          {point_a: "#Integrity"},
-         { point_a: "#Availibilty"},
+        td_a: [
+          {
+            point_a: "#Detective",
+          },
         ],
-        td_c: [{
-          point_a: "#Detect",
-        }],
-        td_d:[ {
-          point_a: "#Information_security_event_managementProtection",
-        }],
-        td_e: [{
-          point_a: "#Defence",
-        }],
+        td_b: [
+          {
+            point_a: "#confidentiality",
+          },
+          { point_a: "#Integrity" },
+          { point_a: "#Availibilty" },
+        ],
+        td_c: [
+          {
+            point_a: "#Detect",
+          },
+        ],
+        td_d: [
+          {
+            point_a: "#Information_security_event_managementProtection",
+          },
+        ],
+        td_e: [
+          {
+            point_a: "#Defence",
+          },
+        ],
       },
     },
   ];
@@ -330,8 +388,8 @@ export default function CompA6() {
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
-              {controlerA6.map((el, index) => (
-                <table key={index}>
+              <table>
+                {controlerA6.map((el, index) => (
                   <tr className={`${el.color ? "green" : ""}`}>
                     {/************Begin:: Sr No :***********  */}
                     <td>
@@ -411,8 +469,8 @@ export default function CompA6() {
                       </span>
                     </td>
                   </tr>
-                </table>
-              ))}
+                ))}
+              </table>
             </div>
           </div>
         </div>

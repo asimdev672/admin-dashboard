@@ -116,16 +116,16 @@ export default function CompA4() {
         {/* ***************Begin::Controller For A4****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-            Context of the organization
+           4 Context of the organization
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
-              {controlerA4.map((el, index) => (
-                <table key={index}>
+              <table>
+                {controlerA4.map((el, index) => (
                   <tr className={`${el.color ? "green" : ""}`}>
                     {/************Begin:: Sr No :***********  */}
                     <td>
-                      <p style={{ width: "1rem" }}>{el.srNo}</p>
+                      <p style={{ width: "1.5rem" }}>{el.srNo}</p>
                     </td>
                     {/************End:: Sr No :***********  */}
 
@@ -200,8 +200,8 @@ export default function CompA4() {
                       </button>
                     </td>
                   </tr>
-                </table>
-              ))}
+                ))}
+              </table>
             </div>
           </div>
         </div>

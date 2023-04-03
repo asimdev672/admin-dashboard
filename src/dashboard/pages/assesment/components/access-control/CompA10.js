@@ -95,16 +95,16 @@ export default function CompA10() {
         {/* ***************Begin::Controller For A10****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-            Improvement
+            10 Improvement
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
-              {controlerA10.map((el, index) => (
-                <table key={index}>
+              <table>
+                {controlerA10.map((el, index) => (
                   <tr className={`${el.color ? "green" : ""}`}>
                     {/************Begin:: Sr No :***********  */}
                     <td>
-                      <p style={{ width: "1rem" }}>{el.srNo}</p>
+                      <p style={{ width: "1.5rem" }}>{el.srNo}</p>
                     </td>
                     {/************End:: Sr No :***********  */}
 
@@ -175,8 +175,8 @@ export default function CompA10() {
                       </button>
                     </td>
                   </tr>
-                </table>
-              ))}
+                ))}
+              </table>
             </div>
           </div>
         </div>

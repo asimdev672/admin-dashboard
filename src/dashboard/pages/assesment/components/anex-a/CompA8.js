@@ -1392,8 +1392,8 @@ export default function CompA8() {
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
-              {controlerA8.map((el, index) => (
-                <table key={index}>
+              <table>
+                {controlerA8.map((el, index) => (
                   <tr className={`${el.color ? "green" : ""}`}>
                     {/************Begin:: Sr No :***********  */}
                     <td>
@@ -1473,8 +1473,8 @@ export default function CompA8() {
                       </span>
                     </td>
                   </tr>
-                </table>
-              ))}
+                ))}
+              </table>
             </div>
           </div>
         </div>

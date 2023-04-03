@@ -11,7 +11,11 @@ export default function CompA9() {
       files: [],
       color: false,
     },
-    // control: 9.2 = Internal audit
+    {
+      srNo: 9.2,
+      heading: "Internal audit",
+      tr_color: "#c3ffff",
+    },
     {
       srNo: "9.2.1",
       controller: "General",
@@ -28,7 +32,11 @@ export default function CompA9() {
       files: [],
       color: false,
     },
-    // control: 9.3 = Management review
+    {
+      srNo: 9.3,
+      heading: "Management review",
+      tr_color: "#c3ffff",
+    },
     {
       srNo: "9.3.1",
       controller: "General",
@@ -129,88 +137,108 @@ export default function CompA9() {
         {/* ***************Begin::Controller For A9****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-            Performance evaluation
+            9 Performance evaluation
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
-              {controlerA9.map((el, index) => (
-                <table key={index}>
-                  <tr className={`${el.color ? "green" : ""}`}>
-                    {/************Begin:: Sr No :***********  */}
-                    <td>
-                      <p style={{ width: "1rem" }}>{el.srNo}</p>
-                    </td>
-                    {/************End:: Sr No :***********  */}
+              <table>
+                {controlerA9.map((el, index) => (
+                  <>
+                    {el?.heading ? (
+                      <tr style={{ background: el?.tr_color }}>
+                        <td>
+                          <p style={{ width: "1.5rem" }}>{el.srNo}</p>
+                        </td>
+                        <td colspan="5">
+                          <p className="fw-bold">{el.heading}</p>
+                        </td>
+                      </tr>
+                    ) : (
+                      <tr className={`${el.color ? "green" : ""}`}>
+                        {/************Begin:: Sr No :***********  */}
+                        <td>
+                          <p style={{ width: "1.5rem" }}>{el.srNo}</p>
+                        </td>
+                        {/************End:: Sr No :***********  */}
 
-                    {/************Begin::Controller Name :***********  */}
-                    <td>
-                      <p className="overflow-hidden" style={{ width: "16rem" }}>
-                        {el.controller}
-                      </p>
-                    </td>
-                    {/************Begin::Controller Name :***********  */}
-                    <td>
-                      <select
-                        value={controlerA9[index].condition}
-                        name="condition"
-                        onChange={(e) => handleInputForm(e.target.value, index)}
-                      >
-                        <option value="Unknown">unknown</option>
-                        <option value="Non-existent">Non-existent</option>
-                        <option value="Initial">Initial</option>
-                        <option value="Limited">Limited</option>
-                        <option value="Defined">Defined</option>
-                        <option value="Managed">Managed</option>
-                        <option value="Optimized">Optimized</option>
-                        <option value="Not-applicable">Not applicable</option>
-                      </select>
-                    </td>
-                    <td>
-                      <textarea
-                        className="mt-3"
-                        style={{ height: "40px", width: "17rem" }}
-                        value={controlerA9[index].description}
-                        name="description"
-                        form="usrform"
-                        onChange={(e) =>
-                          handleInputFormDes(e.target.value, index)
-                        }
-                      ></textarea>
-                    </td>
-                    <td>
-                      <span className="position-relative d-block">
-                        <span className="ico">
-                          {controlerA9[index].files.length}
-                        </span>
-                      </span>
-                      <div className="upload-btn-wrapper">
-                        <label
-                          className="fileUpload"
-                          htmlFor={`fileA9${index}`}
-                        >
-                          Upload a file
-                          <input
-                            type="file"
-                            className="d-none"
-                            id={`fileA9${index}`}
-                            onChange={(e) => handleFile(e, index)}
-                            multiple
-                            //  accept='.png, .jpg, .jpeg'
-                          />
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <button
-                        className="submitBtn"
-                        onClick={() => handleSubmit(el, index)}
-                      >
-                        Submit
-                      </button>
-                    </td>
-                  </tr>
-                </table>
-              ))}
+                        {/************Begin::Controller Name :***********  */}
+                        <td>
+                          <p
+                            className="overflow-hidden"
+                            style={{ width: "16rem" }}
+                          >
+                            {el.controller}
+                          </p>
+                        </td>
+                        {/************Begin::Controller Name :***********  */}
+                        <td>
+                          <select
+                            value={controlerA9[index].condition}
+                            name="condition"
+                            onChange={(e) =>
+                              handleInputForm(e.target.value, index)
+                            }
+                          >
+                            <option value="Unknown">unknown</option>
+                            <option value="Non-existent">Non-existent</option>
+                            <option value="Initial">Initial</option>
+                            <option value="Limited">Limited</option>
+                            <option value="Defined">Defined</option>
+                            <option value="Managed">Managed</option>
+                            <option value="Optimized">Optimized</option>
+                            <option value="Not-applicable">
+                              Not applicable
+                            </option>
+                          </select>
+                        </td>
+                        <td>
+                          <textarea
+                            className="mt-3"
+                            style={{ height: "40px", width: "17rem" }}
+                            value={controlerA9[index].description}
+                            name="description"
+                            form="usrform"
+                            onChange={(e) =>
+                              handleInputFormDes(e.target.value, index)
+                            }
+                          ></textarea>
+                        </td>
+                        <td>
+                          <span className="position-relative d-block">
+                            <span className="ico">
+                              {controlerA9[index].files.length}
+                            </span>
+                          </span>
+                          <div className="upload-btn-wrapper">
+                            <label
+                              className="fileUpload"
+                              htmlFor={`fileA9${index}`}
+                            >
+                              Upload a file
+                              <input
+                                type="file"
+                                className="d-none"
+                                id={`fileA9${index}`}
+                                onChange={(e) => handleFile(e, index)}
+                                multiple
+                                //  accept='.png, .jpg, .jpeg'
+                              />
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <button
+                            className="submitBtn"
+                            onClick={() => handleSubmit(el, index)}
+                          >
+                            Submit
+                          </button>
+                        </td>
+                      </tr>
+                    )}
+                  </>
+                ))}
+              </table>
             </div>
           </div>
         </div>

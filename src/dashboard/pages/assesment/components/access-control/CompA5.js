@@ -106,16 +106,16 @@ export default function CompA5() {
         {/* ***************Begin::Controller For A5****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-            Leadership
+            5 Leadership
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
-              {controlerA5.map((el, index) => (
-                <table key={index}>
+              <table>
+                {controlerA5.map((el, index) => (
                   <tr className={`${el.color ? "green" : ""}`}>
                     {/************Begin:: Sr No :***********  */}
                     <td>
-                      <p style={{ width: "1rem" }}>{el.srNo}</p>
+                      <p style={{ width: "1.5rem" }}>{el.srNo}</p>
                     </td>
                     {/************End:: Sr No :***********  */}
 
@@ -190,8 +190,8 @@ export default function CompA5() {
                       </button>
                     </td>
                   </tr>
-                </table>
-              ))}
+                ))}
+              </table>
             </div>
           </div>
         </div>

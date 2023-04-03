@@ -37,6 +37,11 @@ export default function CompA7() {
     },
     // control: 7.5 = Documented information
     {
+      srNo: 7.5,
+      heading: "Documented information",
+      tr_color: "#c3ffff",
+    },
+    {
       srNo: "7.5.1",
       controller: "General",
       condition: "",
@@ -136,88 +141,108 @@ export default function CompA7() {
         {/* ***************Begin::Controller For A7****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-            Support
+            7 Support
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
-              {controlerA7.map((el, index) => (
-                <table key={index}>
-                  <tr className={`${el.color ? "green" : ""}`}>
-                    {/************Begin:: Sr No :***********  */}
-                    <td>
-                      <p style={{ width: "1rem" }}>{el.srNo}</p>
-                    </td>
-                    {/************End:: Sr No :***********  */}
+              <table>
+                {controlerA7.map((el, index) => (
+                  <>
+                    {el?.heading ? (
+                      <tr style={{ background: el?.tr_color }}>
+                        <td>
+                          <p style={{ width: "1.5rem" }}>{el.srNo}</p>
+                        </td>
+                        <td colspan="5">
+                          <p className="fw-bold">{el.heading}</p>
+                        </td>
+                      </tr>
+                    ) : (
+                      <tr className={`${el.color ? "green" : ""}`}>
+                        {/************Begin:: Sr No :***********  */}
+                        <td>
+                          <p style={{ width: "1.5rem" }}>{el.srNo}</p>
+                        </td>
+                        {/************End:: Sr No :***********  */}
 
-                    {/************Begin::Controller Name :***********  */}
-                    <td>
-                      <p className="overflow-hidden" style={{ width: "16rem" }}>
-                        {el.controller}
-                      </p>
-                    </td>
-                    {/************Begin::Controller Name :***********  */}
-                    <td>
-                      <select
-                        value={controlerA7[index].condition}
-                        name="condition"
-                        onChange={(e) => handleInputForm(e.target.value, index)}
-                      >
-                        <option value="Unknown">unknown</option>
-                        <option value="Non-existent">Non-existent</option>
-                        <option value="Initial">Initial</option>
-                        <option value="Limited">Limited</option>
-                        <option value="Defined">Defined</option>
-                        <option value="Managed">Managed</option>
-                        <option value="Optimized">Optimized</option>
-                        <option value="Not-applicable">Not applicable</option>
-                      </select>
-                    </td>
-                    <td>
-                      <textarea
-                        className="mt-3"
-                        style={{ height: "40px", width: "17rem" }}
-                        value={controlerA7[index].description}
-                        name="description"
-                        form="usrform"
-                        onChange={(e) =>
-                          handleInputFormDes(e.target.value, index)
-                        }
-                      ></textarea>
-                    </td>
-                    <td>
-                      <span className="position-relative d-block">
-                        <span className="ico">
-                          {controlerA7[index].files.length}
-                        </span>
-                      </span>
-                      <div className="upload-btn-wrapper">
-                        <label
-                          className="fileUpload"
-                          htmlFor={`fileA7${index}`}
-                        >
-                          Upload a file
-                          <input
-                            type="file"
-                            className="d-none"
-                            id={`fileA7${index}`}
-                            onChange={(e) => handleFile(e, index)}
-                            multiple
-                            //  accept='.png, .jpg, .jpeg'
-                          />
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <button
-                        className="submitBtn"
-                        onClick={() => handleSubmit(el, index)}
-                      >
-                        Submit
-                      </button>
-                    </td>
-                  </tr>
-                </table>
-              ))}
+                        {/************Begin::Controller Name :***********  */}
+                        <td>
+                          <p
+                            className="overflow-hidden"
+                            style={{ width: "16rem" }}
+                          >
+                            {el.controller}
+                          </p>
+                        </td>
+                        {/************Begin::Controller Name :***********  */}
+                        <td>
+                          <select
+                            value={controlerA7[index].condition}
+                            name="condition"
+                            onChange={(e) =>
+                              handleInputForm(e.target.value, index)
+                            }
+                          >
+                            <option value="Unknown">unknown</option>
+                            <option value="Non-existent">Non-existent</option>
+                            <option value="Initial">Initial</option>
+                            <option value="Limited">Limited</option>
+                            <option value="Defined">Defined</option>
+                            <option value="Managed">Managed</option>
+                            <option value="Optimized">Optimized</option>
+                            <option value="Not-applicable">
+                              Not applicable
+                            </option>
+                          </select>
+                        </td>
+                        <td>
+                          <textarea
+                            className="mt-3"
+                            style={{ height: "40px", width: "17rem" }}
+                            value={controlerA7[index].description}
+                            name="description"
+                            form="usrform"
+                            onChange={(e) =>
+                              handleInputFormDes(e.target.value, index)
+                            }
+                          ></textarea>
+                        </td>
+                        <td>
+                          <span className="position-relative d-block">
+                            <span className="ico">
+                              {controlerA7[index].files.length}
+                            </span>
+                          </span>
+                          <div className="upload-btn-wrapper">
+                            <label
+                              className="fileUpload"
+                              htmlFor={`fileA7${index}`}
+                            >
+                              Upload a file
+                              <input
+                                type="file"
+                                className="d-none"
+                                id={`fileA7${index}`}
+                                onChange={(e) => handleFile(e, index)}
+                                multiple
+                                //  accept='.png, .jpg, .jpeg'
+                              />
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <button
+                            className="submitBtn"
+                            onClick={() => handleSubmit(el, index)}
+                          >
+                            Submit
+                          </button>
+                        </td>
+                      </tr>
+                    )}
+                  </>
+                ))}
+              </table>
             </div>
           </div>
         </div>

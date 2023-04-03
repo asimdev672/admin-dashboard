@@ -1527,8 +1527,8 @@ export default function CompA5() {
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>
 
+              <table>
               {controlerA5.map((el, index) => (
-                <table key={index}>
                   <tr className={`${el.color ? "green" : ""}`}>
                     {/************Begin:: Sr No :***********  */}
                     <td>
@@ -1612,8 +1612,8 @@ export default function CompA5() {
                       </span>
                     </td>
                   </tr>
-                </table>
               ))}
+              </table>
             </div>
           </div>
         </div>

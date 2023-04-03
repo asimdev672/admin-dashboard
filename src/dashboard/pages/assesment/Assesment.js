@@ -102,7 +102,7 @@ export default function AuditPlane() {
               <div className="ico--main ">
                 <MdAdsClick
                   className="icc"
-                  style={{ color: "#00c057" }}
+                  style={{ color: "#2482ba" }}
                   onClick={() => setAnexA("access_control")}
                 />
                 <span>Access Control</span>

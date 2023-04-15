@@ -5,8 +5,8 @@ import { MdAdsClick, MdTableView } from "react-icons/md";
 import { FcPlus } from "react-icons/fc";
 import { RiDeleteBin6Line, RiFileExcel2Fill } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { GiLevelEndFlag, GiSolarPower } from "react-icons/gi";
-import { BsLayerForward } from "react-icons/bs";
+import { GiLevelEndFlag, GiLiquidSoap, GiSolarPower } from "react-icons/gi";
+import { BsGrid3X2GapFill, BsLayerForward } from "react-icons/bs";
 
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
@@ -15,6 +15,8 @@ import { Offcanvas } from "react-bootstrap";
 import AddForm from "./components/AddForm";
 import MainAnex from "./components/anex-a/Index";
 import MainAccessControl from "./components/access-control/Index";
+import SOA from "./components/soa/Index";
+import GAP from "./components/gap";
 export default function AuditPlane() {
   const [offCanShow, setOffCanShow] = useState(false);
   const [anexA, setAnexA] = useState("Assesment");
@@ -108,6 +110,30 @@ export default function AuditPlane() {
                 <span>Access Control</span>
               </div>
               <p className="mt-md-3 mt-0">Access Control</p>
+            </div>
+            {/* SOA  */}
+            <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
+              <div className="ico--main ">
+                <GiLiquidSoap
+                  className="icc"
+                  style={{ color: "#2482ba" }}
+                  onClick={() => setAnexA("soa")}
+                />
+                <span>SOA</span>
+              </div>
+              <p className="mt-md-3 mt-0">SOA</p>
+            </div>
+            {/* Gap  */}
+            <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
+              <div className="ico--main ">
+                <BsGrid3X2GapFill
+                  className="icc"
+                  style={{ color: "red" }}
+                  onClick={() => setAnexA("Gap")}
+                />
+                <span>Gap</span>
+              </div>
+              <p className="mt-md-3 mt-0">Gap</p>
             </div>
           </div>
         </header>
@@ -203,6 +229,20 @@ export default function AuditPlane() {
           {anexA === "access_control" ? (
             <div className="">
               <MainAccessControl />
+            </div>
+          ) : (
+            ""
+          )}
+          {anexA === "soa" ? (
+            <div className="">
+              <SOA />
+            </div>
+          ) : (
+            ""
+          )}
+          {anexA === "Gap" ? (
+            <div className="">
+              <GAP />
             </div>
           ) : (
             ""

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export default function CompA7() {
   const A7 = [
     {
-      srNo: 7.1,
+      srNo: "VII.I",
       controller: "Resources",
       condition: "",
       description: "",
@@ -12,7 +12,7 @@ export default function CompA7() {
       color: false,
     },
     {
-      srNo: 7.2,
+      srNo: "VII.II",
       controller: "Competence",
       condition: "",
       description: "",
@@ -20,7 +20,7 @@ export default function CompA7() {
       color: false,
     },
     {
-      srNo: 7.3,
+      srNo: "VII.III",
       controller: "Awareness",
       condition: "",
       description: "",
@@ -28,7 +28,7 @@ export default function CompA7() {
       color: false,
     },
     {
-      srNo: 7.4,
+      srNo: "VII.IV",
       controller: "Communication",
       condition: "",
       description: "",
@@ -37,12 +37,12 @@ export default function CompA7() {
     },
     // control: 7.5 = Documented information
     {
-      srNo: 7.5,
+      srNo: "VII.V",
       heading: "Documented information",
       tr_color: "#c3ffff",
     },
     {
-      srNo: "7.5.1",
+      srNo: "VII.V.I",
       controller: "General",
       condition: "",
       description: "",
@@ -50,7 +50,7 @@ export default function CompA7() {
       color: false,
     },
     {
-      srNo: "7.5.2",
+      srNo: "VII.V.II",
       controller: "Creating and updating",
       condition: "",
       description: "",
@@ -58,7 +58,7 @@ export default function CompA7() {
       color: false,
     },
     {
-      srNo: "7.5.3",
+      srNo: "VII.V.III",
       controller: "Control of documented information",
       condition: "",
       description: "",
@@ -103,6 +103,10 @@ export default function CompA7() {
   // handleSubmit
   const handleSubmit = (el, index) => {
     console.log("inputData 5", el);
+    const updatedData = {
+      condition: el.condition,
+      description: el.description,
+    };
     const newFormData = new FormData();
     newFormData.append("srNo", el.srNo);
     newFormData.append("condition", el.condition);
@@ -125,6 +129,10 @@ export default function CompA7() {
         copArr[index] = obj;
         setControlerA7(copArr);
         toast.success("Successfully Added");
+        axios.patch(
+          `http://localhost:8000/api/v1/control/updateControl/${el.srNo}`,
+          updatedData
+        );
         console.log(
           "res",
           ` http://localhost:8000/api/v1/iso/${res.data.data.files}`

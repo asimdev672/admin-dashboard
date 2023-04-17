@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export default function CompA10() {
   const A10 = [
     {
-      srNo: 10.1,
+      srNo: "X.I",
       controller: "Continual improvement",
       condition: "",
       description: "",
@@ -12,7 +12,7 @@ export default function CompA10() {
       color: false,
     },
     {
-      srNo: 10.2,
+      srNo: "X.II",
       controller: "Nonconformity and corrective action",
       condition: "",
       description: "",
@@ -57,6 +57,10 @@ export default function CompA10() {
   // handleSubmit
   const handleSubmit = (el, index) => {
     console.log("inputData 5", el);
+    const updatedData = {
+      condition: el.condition,
+      description: el.description,
+    };
     const newFormData = new FormData();
     newFormData.append("srNo", el.srNo);
     newFormData.append("condition", el.condition);
@@ -79,6 +83,10 @@ export default function CompA10() {
         copArr[index] = obj;
         setControlerA10(copArr);
         toast.success("Successfully Added");
+        axios.patch(
+          `http://localhost:8000/api/v1/control/updateControl/${el.srNo}`,
+          updatedData
+        );
         console.log(
           "res",
           ` http://localhost:8000/api/v1/iso/${res.data.data.files}`

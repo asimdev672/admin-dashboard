@@ -83,7 +83,29 @@ export default function SOA() {
                           {/* End: Controller Name */}
 
                           {/* Begin: Condition */}
-                          <td className="bg-danger">Non-Existent</td>
+                          <td
+                            className={
+                              el?.condition === "Limited"
+                                ? "bg-success"
+                                : el?.condition === "Initial"
+                                ? "bg-danger"
+                                : el?.condition === "unknown"
+                                ? "bg-unknown"
+                                : el?.condition === "Defined"
+                                ? "bg-warning"
+                                : el?.condition === "Managed"
+                                ? "bg-crimasy"
+                                : el?.condition === "Optimized"
+                                ? "bg-primary"
+                                : el?.condition === "Not-applicable"
+                                ? "bg-secondary"
+                                : el?.condition === "Non-existent"
+                                ? "bg-darkDngr"
+                                : "bg-danger"
+                            }
+                          >
+                            {el?.condition ? el?.condition : "Non-Existent"}
+                          </td>
                           {/* End: Condition */}
 
                           {/* Begin: Description */}

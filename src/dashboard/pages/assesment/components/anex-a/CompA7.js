@@ -438,6 +438,10 @@ export default function CompA7() {
   // handleSubmit
   const handleSubmit = (el,index) => {
     console.log("inputData 5", el);
+    const updatedData = {
+      condition: el.condition,
+      description: el.description,
+    };
     const newFormData = new FormData();
     newFormData.append("srNo", el.srNo);
     newFormData.append("condition", el.condition);
@@ -460,6 +464,10 @@ export default function CompA7() {
         copArr[index]=obj
         setControlerA7(copArr);
         toast.success("Successfully Added");
+        axios.patch(
+          `http://localhost:8000/api/v1/control/updateControl/${el.srNo}`,
+          updatedData
+        );
         console.log(
           "res",
           ` http://localhost:8000/api/v1/iso/${res.data.data.files}`

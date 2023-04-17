@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export default function CompA8() {
   const A8 = [
     {
-      srNo: 8.1,
+      srNo: "VIII.I",
       controller: "Operational planning and control",
       condition: "",
       description: "",
@@ -13,7 +13,7 @@ export default function CompA8() {
       color: false,
     },
     {
-      srNo: 8.2,
+      srNo: "VIII.II",
       controller: "Information security risk assessment",
       condition: "",
       description: "",
@@ -21,7 +21,7 @@ export default function CompA8() {
       color: false,
     },
     {
-      srNo: 8.3,
+      srNo: "VIII.III",
       controller: "Information security risk treatment",
       condition: "",
       description: "",
@@ -66,6 +66,10 @@ export default function CompA8() {
   // handleSubmit
   const handleSubmit = (el, index) => {
     console.log("inputData 5", el);
+    const updatedData = {
+      condition: el.condition,
+      description: el.description,
+    };
     const newFormData = new FormData();
     newFormData.append("srNo", el.srNo);
     newFormData.append("condition", el.condition);
@@ -88,7 +92,10 @@ export default function CompA8() {
         copArr[index] = obj;
         setControlerA8(copArr);
         toast.success("Successfully Added");
-
+        axios.patch(
+          `http://localhost:8000/api/v1/control/updateControl/${el.srNo}`,
+          updatedData
+        );
         console.log(
           "res",
           ` http://localhost:8000/api/v1/iso/${res.data.data.files}`

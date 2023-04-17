@@ -5,7 +5,7 @@ import { BiHelpCircle } from "react-icons/bi";
 export default function CompA4() {
   const A4 = [
     {
-      srNo: 4.1,
+      srNo: "IV.I",
       controller: "Understanding the organization and its context",
       condition: "",
       description: "",
@@ -13,7 +13,7 @@ export default function CompA4() {
       color: false,
     },
     {
-      srNo: 4.2,
+      srNo: "IV.II",
       controller:
         "Understanding the needs and expectations of interested parties",
       condition: "",
@@ -22,7 +22,7 @@ export default function CompA4() {
       color: false,
     },
     {
-      srNo: 4.3,
+      srNo: "IV.III",
       controller:
         "Determining the scope of the information security management system",
       condition: "",
@@ -31,7 +31,7 @@ export default function CompA4() {
       color: false,
     },
     {
-      srNo: 4.4,
+      srNo: "IV.IV",
       controller: "Information security management system",
       condition: "",
       description: "",
@@ -77,6 +77,10 @@ export default function CompA4() {
   // handleSubmit
   const handleSubmit = (el, index) => {
     console.log("inputData 5", el);
+    const updatedData = {
+      condition: el.condition,
+      description: el.description,
+    };
     const newFormData = new FormData();
     newFormData.append("srNo", el.srNo);
     newFormData.append("condition", el.condition);
@@ -99,6 +103,10 @@ export default function CompA4() {
         copArr[index] = obj;
         setControlerA4(copArr);
         toast.success("Successfully Added");
+        axios.patch(
+          `http://localhost:8000/api/v1/control/updateControl/${el.srNo}`,
+          updatedData
+        );
         console.log(
           "res",
           ` http://localhost:8000/api/v1/iso/${res.data.data.files}`
@@ -116,7 +124,7 @@ export default function CompA4() {
         {/* ***************Begin::Controller For A4****************** */}
         <div className="overflow-hidden">
           <div onClick={handleShowHide} className="mainHeading">
-           4 Context of the organization
+            4 Context of the organization
           </div>
           <div className={`${show ? "d-none" : "d-block"}`}>
             <div className={`table-resposive overflow-auto bg-graye`}>

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export default function CompA9() {
   const A9 = [
     {
-      srNo: 9.1,
+      srNo: "IX.I",
       controller: "Monitoring, measurement, analysis and evaluation",
       condition: "",
       description: "",
@@ -12,12 +12,12 @@ export default function CompA9() {
       color: false,
     },
     {
-      srNo: 9.2,
+      srNo: "IX.II",
       heading: "Internal audit",
       tr_color: "#c3ffff",
     },
     {
-      srNo: "9.2.1",
+      srNo: "IX.II.I",
       controller: "General",
       condition: "",
       description: "",
@@ -25,7 +25,7 @@ export default function CompA9() {
       color: false,
     },
     {
-      srNo: "9.2.2",
+      srNo: "IX.II.II",
       controller: "Internal audit programme",
       condition: "",
       description: "",
@@ -33,12 +33,12 @@ export default function CompA9() {
       color: false,
     },
     {
-      srNo: 9.3,
+      srNo: "IX.III",
       heading: "Management review",
       tr_color: "#c3ffff",
     },
     {
-      srNo: "9.3.1",
+      srNo: "IX.III.I",
       controller: "General",
       condition: "",
       description: "",
@@ -46,7 +46,7 @@ export default function CompA9() {
       color: false,
     },
     {
-      srNo: "9.3.2",
+      srNo: "IX.III.II",
       controller: "Management review inputs",
       condition: "",
       description: "",
@@ -54,7 +54,7 @@ export default function CompA9() {
       color: false,
     },
     {
-      srNo: "9.3.3",
+      srNo: "IX.III.III",
       controller: "Management review results",
       condition: "",
       description: "",
@@ -99,6 +99,10 @@ export default function CompA9() {
   // handleSubmit
   const handleSubmit = (el, index) => {
     console.log("inputData 5", el);
+    const updatedData = {
+      condition: el.condition,
+      description: el.description,
+    };
     const newFormData = new FormData();
     newFormData.append("srNo", el.srNo);
     newFormData.append("condition", el.condition);
@@ -121,6 +125,10 @@ export default function CompA9() {
         copArr[index] = obj;
         setControlerA9(copArr);
         toast.success("Successfully Added");
+        axios.patch(
+          `http://localhost:8000/api/v1/control/updateControl/${el.srNo}`,
+          updatedData
+        );
         console.log(
           "res",
           ` http://localhost:8000/api/v1/iso/${res.data.data.files}`

@@ -6,15 +6,17 @@ import { MdDashboard, MdDelete } from "react-icons/md";
 import { GiSandsOfTime } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { FcAlarmClock } from "react-icons/fc";
+import { IoDocumentsSharp } from "react-icons/io5";
 const Sidebar = ({ setWUiStyle, wUiStyle }) => {
   const handleWidth = () => {
     setWUiStyle(!wUiStyle);
   };
   return (
-    <div className="Sidebar__main"
-     onMouseEnter={()=>setWUiStyle(false)}
-     onMouseLeave={()=>setWUiStyle(true)}
-     >
+    <div
+      className="Sidebar__main"
+      onMouseEnter={() => setWUiStyle(false)}
+      onMouseLeave={() => setWUiStyle(true)}
+    >
       {/* =========top section=========  */}
       <div
         className="top d-flex justify-content-center align-items-center"
@@ -49,6 +51,14 @@ const Sidebar = ({ setWUiStyle, wUiStyle }) => {
             </span>
             <li className={wUiStyle ? "d-none" : "d-block"}>Assessment</li>
           </Link>
+          <Link to="document-inventory">
+            <span className="d-flex align-items-center">
+              <IoDocumentsSharp className="side_iconC" />
+            </span>
+            <li className={wUiStyle ? "d-none" : "d-block"}>
+              Document Inventory
+            </li>
+          </Link>
           <Link to="audit-plane">
             <span className="d-flex align-items-center">
               <GiSandsOfTime className="side_iconD" />
@@ -57,7 +67,7 @@ const Sidebar = ({ setWUiStyle, wUiStyle }) => {
           </Link>
           <Link to="time-tracking">
             <span className="d-flex align-items-center">
-              <FcAlarmClock className="side_clock--ico"/>
+              <FcAlarmClock className="side_clock--ico" />
             </span>
             <li className={wUiStyle ? "d-none" : "d-block"}>Time Tracking</li>
           </Link>

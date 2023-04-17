@@ -4,20 +4,20 @@ import { toast } from "react-toastify";
 export default function CompA6() {
   const A6 = [
     {
-      srNo: 6,
-      controller: "General",
+      srNo: "IV.I",
+      controller: "Understanding the organization and its context",
       condition: "",
       description: "",
       files: [],
       color: false,
     },
     {
-      srNo: 6.1,
-      heading: "Action to adress risks & opportunities",
+      srNo: "VI.I",
+      heading: "Action to address risks and opportunities",
       tr_color: "#c3ffff",
     },
     {
-      srNo: "6.1.1",
+      srNo: "VI.I.I",
       controller: "Information security risk assessment",
       condition: "",
       description: "",
@@ -25,7 +25,7 @@ export default function CompA6() {
       color: false,
     },
     {
-      srNo: "6.1.2",
+      srNo: "VI.I.II",
       controller: "Information security risk treatment",
       condition: "",
       description: "",
@@ -33,7 +33,7 @@ export default function CompA6() {
       color: false,
     },
     {
-      srNo: 6.2,
+      srNo: "VI.II",
       controller:
         "Information security objectives and planning to achieve them",
       condition: "",
@@ -42,7 +42,7 @@ export default function CompA6() {
       color: false,
     },
     {
-      srNo: 6.3,
+      srNo: "VI.III",
       controller: "Planning of changes",
       condition: "",
       description: "",
@@ -87,6 +87,10 @@ export default function CompA6() {
   // handleSubmit
   const handleSubmit = (el, index) => {
     console.log("inputData 5", el);
+    const updatedData = {
+      condition: el.condition,
+      description: el.description,
+    };
     const newFormData = new FormData();
     newFormData.append("srNo", el.srNo);
     newFormData.append("condition", el.condition);
@@ -109,6 +113,10 @@ export default function CompA6() {
         copArr[index] = obj;
         setControlerA6(copArr);
         toast.success("Successfully Added");
+        axios.patch(
+          `http://localhost:8000/api/v1/control/updateControl/${el.srNo}`,
+          updatedData
+        );
         console.log(
           "res",
           ` http://localhost:8000/api/v1/iso/${res.data.data.files}`

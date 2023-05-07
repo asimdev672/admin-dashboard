@@ -15,13 +15,35 @@ import {
 import { FaDoorClosed } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import { TbTriangleInverted } from "react-icons/tb";
-import { Offcanvas } from "react-bootstrap";
+import { Dropdown, Offcanvas } from "react-bootstrap";
 import AddForm from "./components/AddForm";
+import { useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 export default function AuditPlane() {
+  const [data, setData] = useState([]);
   const [offCanShow, setOffCanShow] = useState(false);
   // handleAddAdultForm
   const handleClose = () => setOffCanShow(false);
   const handleShow = () => setOffCanShow(true);
+
+  useEffect(() => {
+    const fetchProject = () => {
+      axios
+        .get("http://localhost:8000/api/v1/getProject")
+        .then((res) => {
+          console.log("res", res.data);
+          if (res?.data?.status === "success") {
+            setData(res?.data?.data);
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    };
+    fetchProject();
+  }, []);
+  console.log("data", data);
   return (
     <>
       <div className="AuditPlane_main">
@@ -156,46 +178,49 @@ export default function AuditPlane() {
                     <th scope="col">
                       <p className="para">
                         <TbTriangleInverted className="me-1" />
-                        Actual Resource Costs
-                      </p>
-                    </th>
-                    <th scope="col">
-                      <p className="para">
-                        <TbTriangleInverted className="me-1" />
-                        Estimated External Costs
-                      </p>
-                    </th>
-                    <th scope="col">
-                      <p className="para">
-                        <TbTriangleInverted className="me-1" />
-                        Estimated Expenses
-                      </p>
-                    </th>
-                    <th scope="col">
-                      <p className="para">
-                        <TbTriangleInverted className="me-1" />
-                        Actual Expenses
+                        Action
                       </p>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {[1, 2, 3, 4, 5, 6, 7].map((e) => (
-                    <tr>
-                      <td>Shahana</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  ))}
+                  {data.length > 0 ? (
+                    data?.map((e) => (
+                      <tr>
+                        <td>{e?.title}</td>
+                        <td>Mark</td>
+                        <td>@mdo</td>
+                        <td>{new Date(e?.start_date).toLocaleDateString()}</td>
+                        <td>{new Date(e?.end_date).toLocaleDateString()}</td>
+                        <td>{e?.estimate_time}</td>
+                        <td>{e?.actual_time}</td>
+                        <td>{e?.estimate_cost}</td>
+                        <td>
+                          <Dropdown>
+                            <Dropdown.Toggle
+                              variant="Primary"
+                              id="dropdown-basic"
+                            >
+                              Action
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                              <Dropdown.Item href="#/action-2">
+                                Details
+                              </Dropdown.Item>
+                              <Dropdown.Item href="#/action-3">
+                                Assessment
+                              </Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <p className="text-center text-dark d-block w-100 border">
+                      No Data Found
+                    </p>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -227,7 +252,7 @@ export default function AuditPlane() {
         style={{ height: "94vh", top: "6vh" }}
       >
         <Offcanvas.Body>
-          <AddForm setOffCanShow={setOffCanShow}/>
+          <AddForm setOffCanShow={setOffCanShow} />
         </Offcanvas.Body>
       </Offcanvas>
     </>

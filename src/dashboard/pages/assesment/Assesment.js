@@ -6,7 +6,11 @@ import { FcPlus } from "react-icons/fc";
 import { RiDeleteBin6Line, RiFileExcel2Fill } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { GiLevelEndFlag, GiLiquidSoap, GiSolarPower } from "react-icons/gi";
-import { BsGrid3X2GapFill, BsLayerForward } from "react-icons/bs";
+import {
+  BsFillFileSpreadsheetFill,
+  BsGrid3X2GapFill,
+  BsLayerForward,
+} from "react-icons/bs";
 
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
@@ -17,6 +21,7 @@ import MainAnex from "./components/anex-a/Index";
 import MainAccessControl from "./components/access-control/Index";
 import SOA from "./components/soa/Index";
 import GAP from "./components/gap";
+import RTP from "./components/rtp/Rtp";
 export default function AuditPlane() {
   const [offCanShow, setOffCanShow] = useState(false);
   const [anexA, setAnexA] = useState("Assesment");
@@ -135,6 +140,18 @@ export default function AuditPlane() {
               </div>
               <p className="mt-md-3 mt-0">Gap</p>
             </div>
+            {/* RTP  */}
+            <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
+              <div className="ico--main ">
+                <BsFillFileSpreadsheetFill
+                  className="icc"
+                  style={{ color: "red" }}
+                  onClick={() => setAnexA("RTP")}
+                />
+                <span>RTP</span>
+              </div>
+              <p className="mt-md-3 mt-0">RTP</p>
+            </div>
           </div>
         </header>
         {/* AuditPlane_body  */}
@@ -243,6 +260,13 @@ export default function AuditPlane() {
           {anexA === "Gap" ? (
             <div className="">
               <GAP />
+            </div>
+          ) : (
+            ""
+          )}
+          {anexA === "RTP" ? (
+            <div className="">
+              <RTP />
             </div>
           ) : (
             ""

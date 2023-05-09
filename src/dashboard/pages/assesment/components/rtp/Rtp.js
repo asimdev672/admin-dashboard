@@ -48,41 +48,49 @@ export default function RTP() {
   ];
 
   return (
-    <div className="RTP">
-      <div className="excel-container">
-        <SpreadsheetComponent
-          ref={(s = SpreadsheetComponent) => (ssObj = s)}
-          allowOpen={true}
-          created={onCreated}
-          allowCellFormatting={true}
-          openUrl="https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open"
-          allowSave={true}
-          saveUrl="https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save"
-          style={{ height: "100%", width: "100%" }}
-        >
-          <SheetsDirective>
-            <SheetDirective>
-              <RangesDirective>
-                <RangeDirective
-                  dataSource={data}
-                  startCell="A1"
-                  endCell="K2"
-                  rowHeight={30}
-                ></RangeDirective>
-              </RangesDirective>
-              <ColumnsDirective>
-                {columns.map((col, index) => (
-                  <ColumnDirective
-                    key={index}
-                    width={col.width}
-                    style={{ wrap: true }}
-                  />
-                ))}
-              </ColumnsDirective>
-            </SheetDirective>
-          </SheetsDirective>
-        </SpreadsheetComponent>
+    <>
+      <h3
+        class="text-center my-4"
+        style={{ fontWeight: "700", color: "#024264" }}
+      >
+        RTP
+      </h3>
+      <div className="RTP">
+        <div className="excel-container">
+          <SpreadsheetComponent
+            ref={(s = SpreadsheetComponent) => (ssObj = s)}
+            allowOpen={true}
+            created={onCreated}
+            allowCellFormatting={true}
+            openUrl="https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open"
+            allowSave={true}
+            saveUrl="https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save"
+            style={{ height: "100%", width: "100%" }}
+          >
+            <SheetsDirective>
+              <SheetDirective>
+                <RangesDirective>
+                  <RangeDirective
+                    dataSource={data}
+                    startCell="A1"
+                    endCell="K2"
+                    rowHeight={30}
+                  ></RangeDirective>
+                </RangesDirective>
+                <ColumnsDirective>
+                  {columns.map((col, index) => (
+                    <ColumnDirective
+                      key={index}
+                      width={col.width}
+                      style={{ wrap: true }}
+                    />
+                  ))}
+                </ColumnsDirective>
+              </SheetDirective>
+            </SheetsDirective>
+          </SpreadsheetComponent>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

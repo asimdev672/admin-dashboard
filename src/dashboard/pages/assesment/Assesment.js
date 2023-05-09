@@ -145,7 +145,7 @@ export default function AuditPlane() {
               <div className="ico--main ">
                 <BsFillFileSpreadsheetFill
                   className="icc"
-                  style={{ color: "red" }}
+                  style={{ color: "#024264" }}
                   onClick={() => setAnexA("RTP")}
                 />
                 <span>RTP</span>

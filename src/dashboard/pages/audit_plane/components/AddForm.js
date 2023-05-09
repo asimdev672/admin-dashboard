@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import clsx from "clsx";
 import axios from "axios";
-export default function AddForm({ setOffCanShow }) {
+export default function AddForm({ setOffCanShow, setIsRefresh, isRefresh }) {
   const AddSchema = Yup.object().shape({
     description: Yup.string()
       .min(3, "Minimum 3 symbols")
@@ -29,6 +29,7 @@ export default function AddForm({ setOffCanShow }) {
     initialValues: {
       title: "",
       description: "",
+      status: false,
       start_date: new Date().toISOString().substr(0, 10),
       end_date: "",
       estimate_time: "",
@@ -47,6 +48,7 @@ export default function AddForm({ setOffCanShow }) {
           })
           .then((res) => {
             console.log("res", res);
+            setIsRefresh(!isRefresh);
             toast.success("Successfully Create");
             setOffCanShow(false);
             resetForm();
@@ -165,6 +167,17 @@ export default function AddForm({ setOffCanShow }) {
                             </div>
                           </div>
                         )}
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Approved</label>
+                      <input
+                        {...formik.getFieldProps("status")}
+                        name="status"
+                        className="form-check-input ms-3 mt-1"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault"
+                      />
                     </div>
                   </div>
                 </div>

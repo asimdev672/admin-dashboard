@@ -33,24 +33,30 @@ const Sidebar = ({ setWUiStyle, wUiStyle }) => {
         }
       >
         <ul className="m-0 p-0">
-          <Link to="/dashboard">
+          {/* <Link to="/dashboard">
             <span className="d-flex align-items-center">
               <AiFillHome className="side_iconA" />
             </span>
             <li className={wUiStyle ? "d-none" : "d-block"}>My Home</li>
-          </Link>
+          </Link> */}
           <Link to="/dashboard">
             <span className="d-flex align-items-center">
               <MdDashboard className="side_iconA" />
             </span>
             <li className={wUiStyle ? "d-none" : "d-block"}>My Dashboard</li>
           </Link>
-          <Link to="assesment">
+          <Link to="audit-plane">
+            <span className="d-flex align-items-center">
+              <GiSandsOfTime className="side_iconD" />
+            </span>
+            <li className={wUiStyle ? "d-none" : "d-block"}>Audit Plane</li>
+          </Link>
+          {/* <Link to="assesment">
             <span className="d-flex align-items-center">
               <MdDelete className="side_iconC" />
             </span>
             <li className={wUiStyle ? "d-none" : "d-block"}>Assessment</li>
-          </Link>
+          </Link> */}
           <Link to="document-inventory">
             <span className="d-flex align-items-center">
               <IoDocumentsSharp className="side_iconC" />
@@ -58,12 +64,6 @@ const Sidebar = ({ setWUiStyle, wUiStyle }) => {
             <li className={wUiStyle ? "d-none" : "d-block"}>
               Document Inventory
             </li>
-          </Link>
-          <Link to="audit-plane">
-            <span className="d-flex align-items-center">
-              <GiSandsOfTime className="side_iconD" />
-            </span>
-            <li className={wUiStyle ? "d-none" : "d-block"}>Audit Plane</li>
           </Link>
           <Link to="time-tracking">
             <span className="d-flex align-items-center">

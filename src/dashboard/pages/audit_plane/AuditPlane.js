@@ -20,9 +20,14 @@ import AddForm from "./components/AddForm";
 import { useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 export default function AuditPlane() {
+  const navigate = useNavigate();
+  const [isCheck, setIsCheck] = useState(false);
   const [data, setData] = useState([]);
   const [offCanShow, setOffCanShow] = useState(false);
+  const [isRefresh, setIsRefresh] = useState(false);
+  const [selectedItems, setSelectedItems] = useState([]);
   // handleAddAdultForm
   const handleClose = () => setOffCanShow(false);
   const handleShow = () => setOffCanShow(true);
@@ -42,8 +47,94 @@ export default function AuditPlane() {
         });
     };
     fetchProject();
-  }, []);
+  }, [isRefresh]);
   console.log("data", data);
+
+  // handleAssessmentRout
+  const handleAssessmentRout = (e) => {
+    console.log("/dashboard/audit-plane", e);
+    navigate("/dashboard/assesment");
+  };
+
+  // handleCheckBox
+  const handleCheckBox = (evt, e, i) => {
+    setIsCheck(evt.target.checked);
+    if (evt.target.checked) {
+      setSelectedItems((prevSelectedItems) => [...prevSelectedItems, e]);
+    } else {
+      selectedItems.filter((items) => items !== e);
+    }
+  };
+  // handleDeleteRow
+  const handleDeleteRow = () => {
+    console.log("selectedItems", selectedItems);
+    let lstIndx = selectedItems.length;
+    selectedItems.forEach((el, i) => {
+      axios
+        .delete(`http://localhost:8000/api/v1/deleteProject?id=${el?._id}`)
+        .then((res) => {
+          if (lstIndx - 1 === i) {
+            toast.success("Updated Successfully");
+            setIsRefresh(!isRefresh);
+            setIsCheck(false);
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+          toast.success("Something went wrong");
+        });
+    });
+  };
+  // handleApproved
+  const handleApproved = () => {
+    let copArray = selectedItems.filter((el) => el.status === true);
+    let lstIndx = copArray.length;
+    if (copArray) {
+      copArray.forEach((el, i) => {
+        axios
+          .patch(`http://localhost:8000/api/v1/updateProject?id=${el?._id}`, {
+            status: true,
+          })
+          .then((res) => {
+            if (lstIndx - 1 === i) {
+              toast.success("Delete Successfully");
+              setIsRefresh(!isRefresh);
+              setIsCheck(false);
+            }
+          })
+          .catch((err) => {
+            console.log("err", err);
+            toast.success("Something went wrong");
+          });
+      });
+    }
+  };
+  // handleUnapproved
+  const handleUnapproved = () => {
+    let copArray = selectedItems.filter((el) => el.status === true);
+    console.log("copArray", copArray);
+
+    let lstIndx = copArray.length;
+    if (copArray) {
+      copArray.forEach((el, i) => {
+        axios
+          .patch(`http://localhost:8000/api/v1/updateProject?id=${el?._id}`, {
+            status: false,
+          })
+          .then((res) => {
+            if (lstIndx - 1 === i) {
+              toast.success("Updated Successfully");
+              setIsRefresh(!isRefresh);
+              setIsCheck(false);
+            }
+          })
+          .catch((err) => {
+            console.log("err", err);
+            toast.success("Something went wrong");
+          });
+      });
+    }
+  };
   return (
     <>
       <div className="AuditPlane_main">
@@ -76,31 +167,42 @@ export default function AuditPlane() {
             {/* Admin  */}
             <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1  ">
               <div className="d-flex align-items-center gap-md-4 gap-2">
-                <div className="ico--main opacity--cursor">
-                  <RiDeleteBin6Line className="icc red opacity--cursor" />
+                <div className="ico--main ">
+                  <RiDeleteBin6Line
+                    className={`icc red ${!isCheck ? "opacity--cursor" : ""}`}
+                    onClick={handleDeleteRow}
+                  />
                   <span>Delete</span>
                 </div>
                 <div className="ico--main opacity--cursor">
                   <IoFolderOpenSharp className="icc opacity--cursor" />
                   <span>open</span>
                 </div>
-                <div className="ico--main opacity--cursor">
-                  <AiOutlineMobile className="icc red opacity--cursor" />
+                <div className="ico--main ">
+                  <AiOutlineMobile
+                    onClick={handleUnapproved}
+                    className={`icc red ${!isCheck ? "opacity--cursor" : ""}`}
+                  />
                   <span>Unapproved</span>
                 </div>
-                <div className="ico--main opacity--cursor">
-                  <FcApproval className="icc opacity--cursor" />
+                <div className="ico--main ">
+                  <FcApproval
+                    onClick={handleApproved}
+                    className={`icc ${!isCheck ? "opacity--cursor" : ""}`}
+                  />
                   <span>Approved</span>
                 </div>
-                <div className="ico--main opacity--cursor">
-                  <FaDoorClosed className="icc opacity--cursor" />
+                <div className="ico--main">
+                  <FaDoorClosed
+                    className={`icc ${!isCheck ? "opacity--cursor" : ""}`}
+                  />
                   <span>Closed</span>
                 </div>
               </div>
               <p className="mt-md-3 mt-0">Admin</p>
             </div>
             {/* Export  */}
-            <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
+            {/* <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1 ">
               <div className="ico--main opacity--cursor">
                 <RiFileExcel2Fill
                   className="icc opacity--cursor"
@@ -109,7 +211,7 @@ export default function AuditPlane() {
                 <span>Excel</span>
               </div>
               <p className="mt-md-3 mt-0">Export</p>
-            </div>
+            </div> */}
           </div>
         </header>
         {/* AuditPlane_body  */}
@@ -130,19 +232,24 @@ export default function AuditPlane() {
                     <th scope="col">
                       <p>
                         <TbTriangleInverted className="me-1" />
+                      </p>
+                    </th>
+                    <th scope="col">
+                      <p>
+                        <TbTriangleInverted className="me-1" />
                         Audit Plan Title
                       </p>
                     </th>
                     <th scope="col">
                       <p>
                         <TbTriangleInverted className="me-1" />
-                        State
+                        description
                       </p>
                     </th>
                     <th scope="col">
                       <p>
                         <TbTriangleInverted className="me-1" />
-                        Approved
+                        Status
                       </p>
                     </th>
                     <th scope="col">
@@ -183,45 +290,62 @@ export default function AuditPlane() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  {data.length > 0 ? (
-                    data?.map((e) => (
-                      <tr>
-                        <td>{e?.title}</td>
-                        <td>Mark</td>
-                        <td>@mdo</td>
-                        <td>{new Date(e?.start_date).toLocaleDateString()}</td>
-                        <td>{new Date(e?.end_date).toLocaleDateString()}</td>
-                        <td>{e?.estimate_time}</td>
-                        <td>{e?.actual_time}</td>
-                        <td>{e?.estimate_cost}</td>
-                        <td>
-                          <Dropdown>
-                            <Dropdown.Toggle
-                              variant="Primary"
-                              id="dropdown-basic"
-                            >
-                              Action
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                              <Dropdown.Item href="#/action-2">
-                                Details
-                              </Dropdown.Item>
-                              <Dropdown.Item href="#/action-3">
-                                Assessment
-                              </Dropdown.Item>
-                            </Dropdown.Menu>
-                          </Dropdown>
-                        </td>
-                      </tr>
-                    ))
-                  ) : (
-                    <p className="text-center text-dark d-block w-100 border">
-                      No Data Found
-                    </p>
-                  )}
-                </tbody>
+                {data.length > 0 ? (
+                  <tbody>
+                    {data.map((e, i) => (
+                      <>
+                        <tr>
+                          <td>
+                            <div className="form-check">
+                              <input
+                                onChange={(evt) => handleCheckBox(evt, e, i)}
+                                // onChange={(evt) => setIsCheck(!isCheck)
+                                className="form-check-input"
+                                type="checkbox"
+                                id="flexCheckDefault"
+                              />
+                            </div>
+                          </td>
+                          <td>{e?.title}</td>
+                          <td>{e?.description}</td>
+                          <td>{e.status ? "Approved" : "Unapproved"}</td>
+                          <td>
+                            {new Date(e?.start_date).toLocaleDateString()}
+                          </td>
+                          <td>{new Date(e?.end_date).toLocaleDateString()}</td>
+                          <td>{e?.estimate_time}</td>
+                          <td>{e?.actual_time}</td>
+                          <td>{e?.estimate_cost}</td>
+                          <td>
+                            <Dropdown>
+                              <Dropdown.Toggle
+                                variant="secondary"
+                                size="sm"
+                                id="dropdown-basic"
+                              >
+                                Actions.
+                              </Dropdown.Toggle>
+                              <Dropdown.Menu className="shadow-lg">
+                                <Dropdown.Item
+                                  onClick={() => handleAssessmentRout(e)}
+                                >
+                                  Assessment
+                                </Dropdown.Item>
+                              </Dropdown.Menu>
+                            </Dropdown>
+                          </td>
+                        </tr>
+                      </>
+                    ))}
+                  </tbody>
+                ) : (
+                  <p
+                    className="text-center text-dark"
+                    style={{ width: "100%" }}
+                  >
+                    No Data Found
+                  </p>
+                )}
               </table>
             </div>
             <div className="table_footer border">
@@ -252,7 +376,11 @@ export default function AuditPlane() {
         style={{ height: "94vh", top: "6vh" }}
       >
         <Offcanvas.Body>
-          <AddForm setOffCanShow={setOffCanShow} />
+          <AddForm
+            setOffCanShow={setOffCanShow}
+            setIsRefresh={setIsRefresh}
+            isRefresh={isRefresh}
+          />
         </Offcanvas.Body>
       </Offcanvas>
     </>

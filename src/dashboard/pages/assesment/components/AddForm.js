@@ -5,8 +5,18 @@ import { TbTriangleInverted } from "react-icons/tb";
 import { toast } from "react-toastify";
 // import "../../adult_plane/AuditPlane.scss";
 import * as Yup from "yup";
+import AssesmentFeatured from "./AssesmentFeatured";
+import axios from "axios";
 export default function AddForm({ setOffCanShow }) {
-  const [file, setFile] = useState();
+  const [file, setFile] = useState([]);
+  const [assesmentFeatured, setAssesmentFeatured] = useState({
+    soa: false,
+    gap: false,
+    rtp: false,
+    asset_Inventory: false,
+    document_Inventory: false,
+    vulnerability_Assessment: false,
+  });
   const AddSchema = Yup.object().shape({
     description: Yup.string()
       .min(3, "Minimum 3 symbols")
@@ -21,7 +31,7 @@ export default function AddForm({ setOffCanShow }) {
     initialValues: {
       title: "",
       description: "",
-      start_date: "",
+      start_date: new Date().toISOString().substr(0, 10),
       end_date: "",
       primay_dimension: "",
       audit_plan: "",
@@ -29,10 +39,53 @@ export default function AddForm({ setOffCanShow }) {
     enableReinitialize: true,
     validationSchema: AddSchema,
     onSubmit: async (values, { resetForm }) => {
-      console.log("formik Values ", values);
-      console.log(formik.errors.title);
+      console.log("formik Values ", {
+        ...values,
+        assesment_featured: assesmentFeatured,
+      });
+      const newFormData = new FormData();
+      newFormData.append("title", values?.title);
+      newFormData.append("description", values?.description);
+      newFormData.append("start_date", values?.start_date);
+      newFormData.append("end_date", values?.end_date);
+      newFormData.append("primay_dimension", values?.primay_dimension);
+      newFormData.append("audit_plan", values?.audit_plan);
+      newFormData.append("assesment_featured", values?.assesment_featured);
+      file?.map((el) => newFormData.append("files", el));
+      axios
+        .post("http://localhost:8000/api/v1/createAssesment", newFormData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((res) => {
+          console.log("res", res);
+          toast.success("Successfully Added");
+        })
+        .catch((err) => {
+          console.log("err", err);
+          toast.error("Something went wrong");
+        });
     },
   });
+  // handleAssesmentFeatured
+  const handleAssesmentFeatured = (e) => {
+    setAssesmentFeatured((prvState) => {
+      return {
+        ...prvState,
+        [e.target.name]: e.target.checked,
+      };
+    });
+  };
+  // handleFile
+  const handleFile = (e, index) => {
+    let fileArr = [];
+    fileArr.push(...e.target.files);
+    if (fileArr.length > 0) {
+      setFile(fileArr);
+    } else {
+      setFile([]);
+    }
+  };
+  console.log("fileArr", file);
   return (
     <>
       <div className="AddForm--assesment">
@@ -128,11 +181,21 @@ export default function AddForm({ setOffCanShow }) {
                       <div className="row">
                         <div className="col">
                           <label className="form-label">Start Date</label>
-                          <input type="date" className="form-control" />
+                          <input
+                            type="date"
+                            readOnly
+                            value={formik.values.start_date}
+                            className="form-control"
+                          />
                         </div>
                         <div className="col">
                           <label className="form-label">End Date</label>
-                          <input type="date" className="form-control" />
+                          <input
+                            type="date"
+                            {...formik.getFieldProps("end_date")}
+                            name="end_date"
+                            className="form-control"
+                          />
                         </div>
                       </div>
                     </div>
@@ -175,32 +238,55 @@ export default function AddForm({ setOffCanShow }) {
                   <div className="p-3">
                     <div className="w-85 d-flex justify-content-end gap=5">
                       <p className="llbh me-5">Assesment</p>
-                      <p className="llbh ms-2 me-5">Project</p>
+                      {/* <p className="llbh ms-2 me-5">Project</p> */}
                     </div>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((el) => (
-                      <div className="d-flex justify-content-between w-85">
-                        <div className="b2">
-                          <label className="form-label  llb">
-                            Control Perspectives
-                          </label>
-                        </div>
-                        <div className="b2">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            checked
-                          />
-                        </div>
-                        <div className="b2">
-                          <input className="form-check-input" type="checkbox" />
-                        </div>
-                      </div>
-                    ))}
+                    <AssesmentFeatured
+                      label={"SOA"}
+                      name={"soa"}
+                      assesmentFeatured={assesmentFeatured}
+                      setAssesmentFeatured={setAssesmentFeatured}
+                      handleAssesmentFeatured={handleAssesmentFeatured}
+                    />
+                    <AssesmentFeatured
+                      label={"GAP"}
+                      name={"gap"}
+                      assesmentFeatured={assesmentFeatured}
+                      setAssesmentFeatured={setAssesmentFeatured}
+                      handleAssesmentFeatured={handleAssesmentFeatured}
+                    />
+                    <AssesmentFeatured
+                      label={"RTP"}
+                      name={"rtp"}
+                      assesmentFeatured={assesmentFeatured}
+                      setAssesmentFeatured={setAssesmentFeatured}
+                      handleAssesmentFeatured={handleAssesmentFeatured}
+                    />
+                    <AssesmentFeatured
+                      label={"Asset Inventory"}
+                      name={"asset_Inventory"}
+                      assesmentFeatured={assesmentFeatured}
+                      setAssesmentFeatured={setAssesmentFeatured}
+                      handleAssesmentFeatured={handleAssesmentFeatured}
+                    />
+                    <AssesmentFeatured
+                      label={"Document Inventory"}
+                      name={"document_Inventory"}
+                      assesmentFeatured={assesmentFeatured}
+                      setAssesmentFeatured={setAssesmentFeatured}
+                      handleAssesmentFeatured={handleAssesmentFeatured}
+                    />
+                    <AssesmentFeatured
+                      label={"Vulnerability Assessment"}
+                      name={"vulnerability_Assessment"}
+                      assesmentFeatured={assesmentFeatured}
+                      setAssesmentFeatured={setAssesmentFeatured}
+                      handleAssesmentFeatured={handleAssesmentFeatured}
+                    />
                   </div>
                 </div>
               </div>
               {/*======== 3rd col============  */}
-              <div className="col mb-2">
+              {/* <div className="col mb-2">
                 <div className="Risk--scoring b1">
                   <p className="form--heading">Risk Scoring</p>
                   <div className="p-3">
@@ -216,9 +302,9 @@ export default function AddForm({ setOffCanShow }) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/*======== 4th col============  */}
-              <div className="col mb-2">
+              {/* <div className="col mb-2">
                 <div className="Risk--scoring b1">
                   <p className="form--heading">Risk Scoring</p>
                   <div className="p-3">
@@ -235,85 +321,71 @@ export default function AddForm({ setOffCanShow }) {
                     </select>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
-            {/* <div className="row row-cols-1">
-            <div className="col mb-2">
-              <div className="Attachment b1">
-                <p className="form--heading">Attachment</p>
-                <div className="px-3">
-                  <label htmlFor="uploadFile" className="upload my-2">
-                    Upload
-                  </label>
-                  <input
-                    type="file"
-                    class="form-control d-none"
-                    id="uploadFile"
-                    onChange={(e) => setFile(e.target.files[0])}
-                  />
-                  {file && (
-                    <div className="details--pic">
-                      <table className="table table-striped table-bordered  table-scroll">
-                        <thead>
-                          <tr>
-                            <th scope="col">
-                              <p>Type</p>
-                            </th>
-                            <th scope="col">
-                              <p>Document</p>
-                            </th>
-                            <th scope="col">
-                              <p>Size</p>
-                            </th>
-                            <th scope="col">
-                              <p className="para">Last Modifed Date</p>
-                            </th>
-                            <th scope="col">
-                              <p className="para">Last Modified User</p>
-                            </th>
-                            <th scope="col">
-                              <p className="para">Replace</p>
-                            </th>
-                            <th scope="col">
-                              <p className="para">Delete</p>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img
-                                src="https://cdn.dribbble.com/users/3853254/screenshots/13896095/art-gallery-logo-design_4x.jpg"
-                                alt=""
-                                style={{ width: "2.5rem" }}
-                              />
-                            </td>
-                            <td>Mark</td>
-                            <td>13/12</td>
-                            <td>24-0-10</td>
-                            <td>Shahana</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
+            <div className="row row-cols-1">
+              <div className="col mb-2">
+                <div className="Attachment b1">
+                  <p className="form--heading">Attachment</p>
+                  <div className="px-3">
+                    <label htmlFor="uploadFile" className="upload my-2">
+                      Upload
+                    </label>
+                    <input
+                      type="file"
+                      class="form-control d-none"
+                      id="uploadFile"
+                      onChange={(e) => handleFile(e)}
+                      multiple
+                    />
+                    {file.length > 0 && (
+                      <div className="details--pic">
+                        <table className="table table-striped table-bordered  table-scroll">
+                          <thead>
+                            <tr>
+                              <th scope="col">
+                                <p>Type</p>
+                              </th>
+                              <th scope="col">
+                                <p>Document</p>
+                              </th>
+                              <th scope="col">
+                                <p>Size</p>
+                              </th>
+                              <th scope="col">
+                                <p className="para">Last Modifed Date</p>
+                              </th>
+                              <th scope="col">
+                                <p className="para">Last Modified User</p>
+                              </th>
+                              <th scope="col">
+                                <p className="para">Replace</p>
+                              </th>
+                              <th scope="col">
+                                <p className="para">Delete</p>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {file.map((el) => (
+                              <tr>
+                                <td>{el?.type}</td>
+                                <td>{el?.name}</td>
+                                <td>{el?.size}</td>
+                                <td>{el?.lastModifiedDate.toLocaleString()}</td>
+                                <td>Shahana</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col mb-2">
-              <div className="Attachment b1">
-                <p className="form--heading">Assignment</p>
-                <div className="px-3 ">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
-                  neque libero alias porro accusamus totam quidem voluptate et.
-                  Aliquid aliquam sunt tenetur laborum ipsa magnam laboriosam
-                  totam sint, id architecto.
-                </div>
-              </div>
-            </div>
-          </div> */}
           </div>
         </form>
         {/* {formik.isSubmitting} */}

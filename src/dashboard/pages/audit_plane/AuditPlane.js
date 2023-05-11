@@ -28,6 +28,7 @@ export default function AuditPlane() {
   const [offCanShow, setOffCanShow] = useState(false);
   const [isRefresh, setIsRefresh] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [checkbox, setCheckbox] = useState({});
   // handleAddAdultForm
   const handleClose = () => setOffCanShow(false);
   const handleShow = () => setOffCanShow(true);
@@ -52,13 +53,22 @@ export default function AuditPlane() {
 
   // handleAssessmentRout
   const handleAssessmentRout = (e) => {
-    console.log("/dashboard/audit-plane", e);
-    navigate("/dashboard/assesment");
+    if (e.status) {
+      navigate("/dashboard/assesment");
+    } else {
+      toast.error("Project Not Approved");
+    }
   };
 
   // handleCheckBox
   const handleCheckBox = (evt, e, i) => {
     setIsCheck(evt.target.checked);
+    setCheckbox((prvState) => {
+      return {
+        ...prvState,
+        [i]: evt.target.checked,
+      };
+    });
     if (evt.target.checked) {
       setSelectedItems((prevSelectedItems) => [...prevSelectedItems, e]);
     } else {
@@ -77,6 +87,7 @@ export default function AuditPlane() {
             toast.success("Updated Successfully");
             setIsRefresh(!isRefresh);
             setIsCheck(false);
+            setCheckbox({});
           }
         })
         .catch((err) => {
@@ -87,7 +98,7 @@ export default function AuditPlane() {
   };
   // handleApproved
   const handleApproved = () => {
-    let copArray = selectedItems.filter((el) => el.status === true);
+    let copArray = selectedItems.filter((el) => el.status === false);
     let lstIndx = copArray.length;
     if (copArray) {
       copArray.forEach((el, i) => {
@@ -97,9 +108,10 @@ export default function AuditPlane() {
           })
           .then((res) => {
             if (lstIndx - 1 === i) {
-              toast.success("Delete Successfully");
+              toast.success("Updated Successfully");
               setIsRefresh(!isRefresh);
               setIsCheck(false);
+              setCheckbox({});
             }
           })
           .catch((err) => {
@@ -126,6 +138,7 @@ export default function AuditPlane() {
               toast.success("Updated Successfully");
               setIsRefresh(!isRefresh);
               setIsCheck(false);
+              setCheckbox({});
             }
           })
           .catch((err) => {
@@ -135,6 +148,7 @@ export default function AuditPlane() {
       });
     }
   };
+  console.log(checkbox, "checkbox");
   return (
     <>
       <div className="AuditPlane_main">
@@ -300,6 +314,7 @@ export default function AuditPlane() {
                               <input
                                 onChange={(evt) => handleCheckBox(evt, e, i)}
                                 // onChange={(evt) => setIsCheck(!isCheck)
+                                checked={checkbox[i]}
                                 className="form-check-input"
                                 type="checkbox"
                                 id="flexCheckDefault"
@@ -322,10 +337,18 @@ export default function AuditPlane() {
                                 variant="secondary"
                                 size="sm"
                                 id="dropdown-basic"
+                                style={{
+                                  background: "#236a94",
+                                  border: "none",
+                                  outline: "none",
+                                }}
                               >
                                 Actions.
                               </Dropdown.Toggle>
-                              <Dropdown.Menu className="shadow-lg">
+                              <Dropdown.Menu
+                                className="shadow-sm py-2"
+                                style={{ fontSize: "small" }}
+                              >
                                 <Dropdown.Item
                                   onClick={() => handleAssessmentRout(e)}
                                 >
@@ -348,7 +371,7 @@ export default function AuditPlane() {
                 )}
               </table>
             </div>
-            <div className="table_footer border">
+            {/* <div className="table_footer border">
               <div>
                 <AiOutlineDoubleLeft className="fs-4 border me-2 py-1" />
                 <IoIosArrowBack className="fs-4 border me-2 py-1" />
@@ -362,7 +385,7 @@ export default function AuditPlane() {
                 <IoIosArrowForward className="fs-4 border me-2 py-1" />
                 <AiOutlineDoubleRight className="fs-4 border me-2 py-1" />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -408,7 +408,15 @@ export default function AddForm({ setOffCanShow, setIsRefresh, isRefresh }) {
               </div> */}
               <div className="col mb-2">
                 <div className="Attachment b1">
-                  <p className="form--heading">Team Management </p>
+                  <p className="form--heading">
+                    Team Management
+                    <span
+                      className="ps-5"
+                      style={{ color: "red", fontSize: "10px" }}
+                    >
+                      ( At least 2 Member required )
+                    </span>
+                  </p>
                   <div className="px-3 my-3">
                     <div className="row">
                       <div className="col-1"></div>

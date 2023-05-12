@@ -28,6 +28,7 @@ export default function AuditPlane() {
   const [offCanShow, setOffCanShow] = useState(false);
   const [isRefresh, setIsRefresh] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
+  console.log("selectedItems=======>", selectedItems);
   const [checkbox, setCheckbox] = useState({});
   // handleAddAdultForm
   const handleClose = () => setOffCanShow(false);
@@ -54,7 +55,7 @@ export default function AuditPlane() {
   // handleAssessmentRout
   const handleAssessmentRout = (e) => {
     if (e.status) {
-      navigate("/dashboard/assesment");
+      navigate("/dashboard/assesment", { state: e });
     } else {
       toast.error("Project Not Approved");
     }
@@ -84,15 +85,16 @@ export default function AuditPlane() {
         .delete(`http://localhost:8000/api/v1/deleteProject?id=${el?._id}`)
         .then((res) => {
           if (lstIndx - 1 === i) {
-            toast.success("Updated Successfully");
+            toast.success("Delete Successfully");
             setIsRefresh(!isRefresh);
             setIsCheck(false);
             setCheckbox({});
+            setSelectedItems([]);
           }
         })
         .catch((err) => {
           console.log("err", err);
-          toast.success("Something went wrong");
+          toast.error("Something went wrong");
         });
     });
   };
@@ -112,11 +114,12 @@ export default function AuditPlane() {
               setIsRefresh(!isRefresh);
               setIsCheck(false);
               setCheckbox({});
+              setSelectedItems([]);
             }
           })
           .catch((err) => {
             console.log("err", err);
-            toast.success("Something went wrong");
+            toast.error("Something went wrong");
           });
       });
     }
@@ -139,11 +142,12 @@ export default function AuditPlane() {
               setIsRefresh(!isRefresh);
               setIsCheck(false);
               setCheckbox({});
+              setSelectedItems([]);
             }
           })
           .catch((err) => {
             console.log("err", err);
-            toast.success("Something went wrong");
+            toast.error("Something went wrong");
           });
       });
     }

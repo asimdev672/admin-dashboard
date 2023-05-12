@@ -196,3 +196,11 @@
     font-weight: 200;
   }
 }
+.slAs :focus-visible,
+:focus {
+  // border: none !important;
+  border-color: #80808038 !important;
+  outline: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Assesment.scss";
 import { CgChevronDoubleRightO } from "react-icons/cg";
 import { MdAdsClick, MdTableView } from "react-icons/md";
@@ -22,12 +22,71 @@ import MainAccessControl from "./components/access-control/Index";
 import SOA from "./components/soa/Index";
 import GAP from "./components/gap";
 import RTP from "./components/rtp/Rtp";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 export default function AuditPlane() {
+  const location = useLocation();
+  console.log("loation", location.state);
+  const locationData = location.state;
   const [offCanShow, setOffCanShow] = useState(false);
   const [anexA, setAnexA] = useState("Assesment");
+  const [isRefresh, setIsRefresh] = useState(false);
+  const [isCheck, setIsCheck] = useState(false);
+  console.log("isCheck", isCheck);
+  const [assesmentData, setAssesmentData] = useState([]);
+  const [selectedItems, setSelectedItems] = useState({});
   // handleAddAdultForm
   const handleClose = () => setOffCanShow(false);
-  const handleShow = () => setOffCanShow(true);
+  const handleShow = () => {
+    if (assesmentData.length > 0) {
+      toast.warning("Already Assessment Exist");
+    } else {
+      setOffCanShow(true);
+    }
+  };
+  useEffect(() => {
+    const fetchAssesment = () => {
+      axios
+        .get(
+          `http://localhost:8000/api/v1/getAssesment?id=${locationData?._id}`
+        )
+        .then((res) => {
+          console.log("getAssesmentgetAssesment", res?.data);
+          if (res?.data?.status === "success") {
+            setAssesmentData(res?.data?.data);
+          }
+        });
+    };
+    fetchAssesment();
+  }, [isRefresh]);
+  // handleCheck
+  const handleCheck = (evt, e) => {
+    setIsCheck(evt.target.checked);
+    if (evt.target.checked) {
+      setSelectedItems(e);
+    } else {
+      selectedItems({});
+    }
+  };
+  // handleDeleteRow
+  const handleDeleteRow = () => {
+    if (isCheck) {
+      axios
+        .delete(
+          `http://localhost:8000/api/v1/deleteAssesment?id=${selectedItems?._id}`
+        )
+        .then((res) => {
+          toast.success("Delete Successfully");
+          setIsRefresh(!isRefresh);
+          setIsCheck(false);
+        })
+        .catch((err) => {
+          console.log("err", err);
+          toast.error("Something went wrong");
+        });
+    }
+  };
   return (
     <>
       <div className="AuditPlane_main">
@@ -66,8 +125,13 @@ export default function AuditPlane() {
             {/* Admin  */}
             <div className="rightBrd pe-md-4 pe-1 pt-md-3 pt-1  ">
               <div className="d-flex align-items-center gap-md-4 gap-2">
-                <div className="ico--main opacity--cursor">
-                  <RiDeleteBin6Line className="icc red opacity--cursor" />
+                <div
+                  className={`ico--main ${!isCheck ? "opacity--cursor" : ""}`}
+                >
+                  <RiDeleteBin6Line
+                    onClick={handleDeleteRow}
+                    className={`icc red ${!isCheck ? "opacity--cursor" : ""}`}
+                  />
                   <span>Delete</span>
                 </div>
                 <div className="ico--main opacity--cursor">
@@ -174,6 +238,11 @@ export default function AuditPlane() {
                         <th scope="col">
                           <p>
                             <TbTriangleInverted className="me-1" />
+                          </p>
+                        </th>
+                        <th scope="col">
+                          <p>
+                            <TbTriangleInverted className="me-1" />
                             Assesment Title
                           </p>
                         </th>
@@ -186,7 +255,7 @@ export default function AuditPlane() {
                         <th scope="col">
                           <p>
                             <TbTriangleInverted className="me-1" />
-                            State
+                            Assesment Featured
                           </p>
                         </th>
                         <th scope="col">
@@ -203,20 +272,76 @@ export default function AuditPlane() {
                         </th>
                       </tr>
                     </thead>
-                    <tbody>
-                      {[1, 2, 3, 4, 5].map((e) => (
-                        <tr>
-                          <td>Shahana</td>
-                          <td>Mark</td>
-                          <td>@mdo</td>
-                          <td>0</td>
-                          <td>0</td>
-                        </tr>
-                      ))}
-                    </tbody>
+                    {assesmentData.length > 0 ? (
+                      <tbody>
+                        {assesmentData?.map((e) => (
+                          <tr>
+                            <td>
+                              <input
+                                onChange={(evt) => handleCheck(evt, e)}
+                                checked={isCheck}
+                                className="form-check-input"
+                                type="checkbox"
+                                id="flexCheckDefault"
+                              />
+                            </td>
+                            <td>{e?.title}</td>
+                            <td>{e?.description}</td>
+                            <td>
+                              <select className="form-select py-0 slAs">
+                                {e?.assesment_featured?.soa ? (
+                                  <option>SOA</option>
+                                ) : (
+                                  ""
+                                )}
+                                {e?.assesment_featured?.gap ? (
+                                  <option>GAP</option>
+                                ) : (
+                                  ""
+                                )}
+                                {e?.assesment_featured?.rtp ? (
+                                  <option>RTP</option>
+                                ) : (
+                                  ""
+                                )}
+                                {e?.assesment_featured?.asset_Inventory ? (
+                                  <option>aSSET_INVENTORY</option>
+                                ) : (
+                                  ""
+                                )}
+                                {e?.assesment_featured?.document_Inventory ? (
+                                  <option>DOCUMENT_INVENTORY</option>
+                                ) : (
+                                  ""
+                                )}
+                                {e?.assesment_featured
+                                  ?.vulnerability_Assessment ? (
+                                  <option>VULNERABILITY_ASSESSMENT</option>
+                                ) : (
+                                  ""
+                                )}
+                              </select>
+                            </td>
+                            <td>
+                              {new Date(e?.start_date).toLocaleDateString()}
+                            </td>
+                            <td>
+                              {new Date(e?.end_date).toLocaleDateString()}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    ) : (
+                      <p
+                        className="text-center text-dark"
+                        style={{ width: "100%" }}
+                      >
+                        No Assessment Found
+                      </p>
+                    )}
                   </table>
                 </div>
-                <div className="table_footer border">
+                {/* <div className="table_footer border">
                   <div>
                     <AiOutlineDoubleLeft className="fs-4 border me-2 py-1" />
                     <IoIosArrowBack className="fs-4 border me-2 py-1" />
@@ -230,7 +355,7 @@ export default function AuditPlane() {
                     <IoIosArrowForward className="fs-4 border me-2 py-1" />
                     <AiOutlineDoubleRight className="fs-4 border me-2 py-1" />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           ) : (
@@ -283,7 +408,12 @@ export default function AuditPlane() {
         style={{ height: "94vh", top: "6vh" }}
       >
         <Offcanvas.Body>
-          <AddForm setOffCanShow={setOffCanShow} />
+          <AddForm
+            setOffCanShow={setOffCanShow}
+            setIsRefresh={setIsRefresh}
+            isRefresh={isRefresh}
+            locationData={locationData}
+          />
         </Offcanvas.Body>
       </Offcanvas>
     </>

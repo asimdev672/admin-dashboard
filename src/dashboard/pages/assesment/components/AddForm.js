@@ -1,13 +1,20 @@
 import clsx from "clsx";
 import { useFormik } from "formik";
 import React, { useState } from "react";
-import { TbTriangleInverted } from "react-icons/tb";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { ImCross } from "react-icons/im";
 import { toast } from "react-toastify";
 // import "../../adult_plane/AuditPlane.scss";
 import * as Yup from "yup";
 import AssesmentFeatured from "./AssesmentFeatured";
 import axios from "axios";
-export default function AddForm({ setOffCanShow }) {
+export default function AddForm({
+  setOffCanShow,
+  isRefresh,
+  setIsRefresh,
+  locationData,
+}) {
   const [file, setFile] = useState([]);
   const [assesmentFeatured, setAssesmentFeatured] = useState({
     soa: false,
@@ -26,6 +33,9 @@ export default function AddForm({ setOffCanShow }) {
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
       .required("Required field"),
+    end_date: Yup.date()
+      .min(new Date(), "End date must be greater than current date")
+      .required("End date is required"),
   });
   const formik = useFormik({
     initialValues: {
@@ -33,32 +43,39 @@ export default function AddForm({ setOffCanShow }) {
       description: "",
       start_date: new Date().toISOString().substr(0, 10),
       end_date: "",
-      primay_dimension: "",
-      audit_plan: "",
+      // primay_dimension: "",
+      // audit_plan: "",
     },
     enableReinitialize: true,
     validationSchema: AddSchema,
     onSubmit: async (values, { resetForm }) => {
-      console.log("formik Values ", {
-        ...values,
-        assesment_featured: assesmentFeatured,
-      });
+      console.log(assesmentFeatured);
       const newFormData = new FormData();
       newFormData.append("title", values?.title);
       newFormData.append("description", values?.description);
       newFormData.append("start_date", values?.start_date);
       newFormData.append("end_date", values?.end_date);
-      newFormData.append("primay_dimension", values?.primay_dimension);
-      newFormData.append("audit_plan", values?.audit_plan);
-      newFormData.append("assesment_featured", values?.assesment_featured);
+      newFormData.append(
+        "assesment_featured",
+        JSON.stringify(assesmentFeatured)
+      );
+      newFormData.append("project_id", locationData?._id);
       file?.map((el) => newFormData.append("files", el));
+
       axios
-        .post("http://localhost:8000/api/v1/createAssesment", newFormData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        })
+        .post(
+          "http://localhost:8000/api/v1/createAssesment?id=${el?._id}",
+          newFormData,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        )
         .then((res) => {
           console.log("res", res);
           toast.success("Successfully Added");
+          setOffCanShow(false);
+          setIsRefresh(!isRefresh);
+          setFile([]);
         })
         .catch((err) => {
           console.log("err", err);
@@ -68,22 +85,29 @@ export default function AddForm({ setOffCanShow }) {
   });
   // handleAssesmentFeatured
   const handleAssesmentFeatured = (e) => {
-    setAssesmentFeatured((prvState) => {
-      return {
-        ...prvState,
-        [e.target.name]: e.target.checked,
-      };
-    });
+    let { name } = e.target;
+    let arr = [];
+    if (name) {
+      console.log(assesmentFeatured, "assesmentFeatured");
+      setAssesmentFeatured({ ...assesmentFeatured, [name]: e.target.checked });
+      // arr.push({ ...assesmentFeatured, [name]: e.target.checked });
+    }
+    // setFeature(arr);
   };
   // handleFile
-  const handleFile = (e, index) => {
-    let fileArr = [];
-    fileArr.push(...e.target.files);
-    if (fileArr.length > 0) {
+  const handleFile = (e) => {
+    const files = e.target.files;
+    if (file.length + files.length <= 12) {
+      const fileArr = [...file, ...files];
       setFile(fileArr);
     } else {
-      setFile([]);
+      toast.error("You are only allowed to upload a maximum of 12 files.");
     }
+  };
+  // handleDeleteFile
+  const handleDeleteFile = (i) => {
+    console.log(i);
+    setFile(file.filter((el, index) => index !== i));
   };
   console.log("fileArr", file);
   return (
@@ -194,12 +218,40 @@ export default function AddForm({ setOffCanShow }) {
                             type="date"
                             {...formik.getFieldProps("end_date")}
                             name="end_date"
-                            className="form-control"
+                            className={clsx(
+                              "form-control form-control-solid datInp",
+                              {
+                                "is-invalid":
+                                  formik.touched.end_date &&
+                                  formik.errors.end_date,
+                              },
+                              {
+                                "is-valid":
+                                  formik.touched.end_date &&
+                                  !formik.errors.end_date,
+                              }
+                            )}
+                            autoComplete="off"
+                            disabled={formik.isSubmitting}
                           />
+                          {formik.touched.end_date &&
+                            formik.errors.end_date && (
+                              <div>
+                                <div>
+                                  <span
+                                    className="text-danger"
+                                    style={{ fontSize: "small" }}
+                                    role="alert"
+                                  >
+                                    {formik.errors.end_date}
+                                  </span>
+                                </div>
+                              </div>
+                            )}
                         </div>
                       </div>
                     </div>
-                    <div className="mb-3">
+                    {/* <div className="mb-3">
                       <label className="form-label">Aduit Plane</label>
                       <select
                         {...formik.getFieldProps("audit_plan")}
@@ -226,7 +278,7 @@ export default function AddForm({ setOffCanShow }) {
                         <option value="COSO">COSO</option>
                         <option value="Foundations">Foundations</option>
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -243,43 +295,31 @@ export default function AddForm({ setOffCanShow }) {
                     <AssesmentFeatured
                       label={"SOA"}
                       name={"soa"}
-                      assesmentFeatured={assesmentFeatured}
-                      setAssesmentFeatured={setAssesmentFeatured}
                       handleAssesmentFeatured={handleAssesmentFeatured}
                     />
                     <AssesmentFeatured
                       label={"GAP"}
                       name={"gap"}
-                      assesmentFeatured={assesmentFeatured}
-                      setAssesmentFeatured={setAssesmentFeatured}
                       handleAssesmentFeatured={handleAssesmentFeatured}
                     />
                     <AssesmentFeatured
                       label={"RTP"}
                       name={"rtp"}
-                      assesmentFeatured={assesmentFeatured}
-                      setAssesmentFeatured={setAssesmentFeatured}
                       handleAssesmentFeatured={handleAssesmentFeatured}
                     />
                     <AssesmentFeatured
                       label={"Asset Inventory"}
                       name={"asset_Inventory"}
-                      assesmentFeatured={assesmentFeatured}
-                      setAssesmentFeatured={setAssesmentFeatured}
                       handleAssesmentFeatured={handleAssesmentFeatured}
                     />
                     <AssesmentFeatured
                       label={"Document Inventory"}
                       name={"document_Inventory"}
-                      assesmentFeatured={assesmentFeatured}
-                      setAssesmentFeatured={setAssesmentFeatured}
                       handleAssesmentFeatured={handleAssesmentFeatured}
                     />
                     <AssesmentFeatured
                       label={"Vulnerability Assessment"}
                       name={"vulnerability_Assessment"}
-                      assesmentFeatured={assesmentFeatured}
-                      setAssesmentFeatured={setAssesmentFeatured}
                       handleAssesmentFeatured={handleAssesmentFeatured}
                     />
                   </div>
@@ -356,26 +396,24 @@ export default function AddForm({ setOffCanShow }) {
                                 <p className="para">Last Modifed Date</p>
                               </th>
                               <th scope="col">
-                                <p className="para">Last Modified User</p>
-                              </th>
-                              <th scope="col">
-                                <p className="para">Replace</p>
-                              </th>
-                              <th scope="col">
                                 <p className="para">Delete</p>
                               </th>
                             </tr>
                           </thead>
                           <tbody>
-                            {file.map((el) => (
+                            {file.map((el, i) => (
                               <tr>
                                 <td>{el?.type}</td>
                                 <td>{el?.name}</td>
                                 <td>{el?.size}</td>
                                 <td>{el?.lastModifiedDate.toLocaleString()}</td>
-                                <td>Shahana</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
+                                <td className="text-center">
+                                  <ImCross
+                                    className="red"
+                                    onClick={() => handleDeleteFile(i)}
+                                    style={{ cursor: "pointer" }}
+                                  />
+                                </td>
                               </tr>
                             ))}
                           </tbody>
@@ -388,7 +426,7 @@ export default function AddForm({ setOffCanShow }) {
             </div>
           </div>
         </form>
-        {/* {formik.isSubmitting} */}
+        {formik.isSubmitting}
       </div>
     </>
   );

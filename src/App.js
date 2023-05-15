@@ -16,6 +16,7 @@ import SignUp from "./dashboard/pages/signUp/SignUp";
 import CompanyForm from "./dashboard/pages/company-form/CompanyForm";
 import TimeTracking from "./dashboard/pages/time-tracking/TimeTracking";
 import DocumentInventory from "./dashboard/pages/document_inventory/documentInventory";
+import AssetInventory from "./dashboard/pages/asset_inventory/AssetInventory";
 function App() {
   return (
     <>
@@ -38,6 +39,7 @@ function App() {
               />
               <Route path="audit-plane" element={<AuditPlane />} />
               <Route path="time-tracking" element={<TimeTracking />} />
+              <Route path="asset_inventory" element={<AssetInventory />} />
               <Route path="project" element={<Project />} />
               {/*===============End:: dashboard ========== */}
             </Route>

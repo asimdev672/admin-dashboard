@@ -2,10 +2,11 @@ import React from "react";
 import "./Sidebar.scss";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiFillHome, AiFillProject } from "react-icons/ai";
+import { FaFileExcel, FaRegListAlt } from "react-icons/fa";
+import { FcAlarmClock } from "react-icons/fc";
 import { MdDashboard, MdDelete } from "react-icons/md";
 import { GiSandsOfTime } from "react-icons/gi";
 import { Link } from "react-router-dom";
-import { FcAlarmClock } from "react-icons/fc";
 import { IoDocumentsSharp } from "react-icons/io5";
 const Sidebar = ({ setWUiStyle, wUiStyle }) => {
   const handleWidth = () => {
@@ -71,11 +72,17 @@ const Sidebar = ({ setWUiStyle, wUiStyle }) => {
             </span>
             <li className={wUiStyle ? "d-none" : "d-block"}>Time Tracking</li>
           </Link>
+          <Link to="asset_inventory">
+            <span className="d-flex align-items-center">
+              <FaRegListAlt className="side_iconA" />
+            </span>
+            <li className={wUiStyle ? "d-none" : "d-block"}>Asset Inventory</li>
+          </Link>
           <Link to="project">
             <span className="d-flex align-items-center">
-              <AiFillProject className="side_project--ico" />
+              <FaFileExcel className="side_project--ico" />
             </span>
-            <li className={wUiStyle ? "d-none" : "d-block"}>Project</li>
+            <li className={wUiStyle ? "d-none" : "d-block"}>Final Report</li>
           </Link>
         </ul>
       </div>

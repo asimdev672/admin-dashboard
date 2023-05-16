@@ -10,12 +10,16 @@
   .circle {
     background-color: red;
     color: white;
-    padding: 0.3rem;
     border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
   }
+
   .time--add-section {
-    & > div{
-        flex-wrap: wrap;
+    & > div {
+      flex-wrap: wrap;
     }
     padding-top: 1rem;
     label {
@@ -25,13 +29,13 @@
       width: 14rem;
       padding: 0.5rem 0;
     }
-    input[type='search']{
-        width: 18rem;
-        outline: none;
-        padding: 0.3rem 0;
+    input[type="search"] {
+      width: 18rem;
+      outline: none;
+      padding: 0.3rem 0;
     }
-    button{
-        margin-left: 0.5rem;
+    button {
+      margin-left: 0.5rem;
     }
   }
 }

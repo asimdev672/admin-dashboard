@@ -1,9 +1,14 @@
-.home_main{
-    .nav-tabs{
-        button{
-            color: #01527a !important;
-            font-size: 15px;
-            font-weight: 600;
-        }
+.home_main {
+  .nav-tabs {
+    button {
+      color: #01527a !important;
+      font-size: 15px;
+      font-weight: 600;
     }
+  }
+  .chart_card {
+    background-color: #fff;
+    border: 1px solid #a9a9a9;
+    box-shadow: 0 0.2rem 0.4rem 0 rgb(0 0 0 / 25%);
+  }
 }

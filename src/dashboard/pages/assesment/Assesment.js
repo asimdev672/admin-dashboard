@@ -407,7 +407,7 @@ export default function AuditPlane() {
         className="w-100"
         style={{ height: "94vh", top: "6vh" }}
       >
-        <Offcanvas.Body>
+        <Offcanvas.Body className="bg-white">
           <AddForm
             setOffCanShow={setOffCanShow}
             setIsRefresh={setIsRefresh}

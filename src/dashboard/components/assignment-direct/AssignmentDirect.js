@@ -118,7 +118,7 @@ export default function AssignmentDirect() {
         show={offCanShow}
         onHide={handleClose}
       >
-        <Offcanvas.Body>
+        <Offcanvas.Body className="bg-white">
           <Filter setOffCanShow={setOffCanShow} />
         </Offcanvas.Body>
       </Offcanvas>

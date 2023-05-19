@@ -399,10 +399,10 @@ export default function AuditPlane() {
         name="start"
         show={offCanShow}
         onHide={handleClose}
-        className="w-100"
+        className="w-100 "
         style={{ height: "94vh", top: "6vh" }}
       >
-        <Offcanvas.Body>
+        <Offcanvas.Body className="bg-white">
           <AddForm
             setOffCanShow={setOffCanShow}
             setIsRefresh={setIsRefresh}
